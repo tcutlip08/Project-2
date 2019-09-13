@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "no",
+    "database": "SLR_DB",
     "host": "localhost",
     "dialect": "mysql"
   },
