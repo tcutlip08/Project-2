@@ -32,6 +32,16 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
+Object.keys(db).forEach(function(modelName) {
+  db.User.findAll({}).then(function(data) {
+    if (Object.keys(data).length === 0) {
+      if (db[modelName].seed) {
+        db[modelName].seed();
+      }
+    }
+  });
+});
+
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
