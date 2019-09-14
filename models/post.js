@@ -1,4 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
+  console.log("post");
+
   var Post = sequelize.define("Post", {
     PosterID: DataTypes.INTEGER,
     Task: DataTypes.TEXT,
@@ -13,19 +15,22 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Post.associate = function(models) {
-    Post.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
+  Post.associate = models => {
+    Post.belongsToMany(models.User, {
+      through: "UserPost",
+      as: "Users",
+      foreignKey: "PostId",
+      otherKey: "UserId"
     });
   };
 
-//   Post.create({
-//     PosterID: 1,
-//     Task: "Blow me",
-//     AccepterID: 2
-//   });
+  Post.seed = function() {
+    console.log("called posts");
+    Post.create({
+      PosterID: 1,
+      Task: "Blow me"
+    });
+  };
 
   return Post;
 };

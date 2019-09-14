@@ -1,5 +1,7 @@
 "use strict";
 
+console.log("index");
+
 var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
@@ -36,11 +38,15 @@ Object.keys(db).forEach(function (modelName) {
   }
 });
 
+Object.keys(db).forEach(function (modelName) {
+  console.log(db[modelName].seed);
+  if (db[modelName].seed) {
+    db[modelName].seed();
+  }
+});
+
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
-// db.sequelize.query("INSERT INTO users (FBID, Name) VALUES('F1R3B453', 'Nate')", function (err)
-// db.sequelize.query("INSERT INTO users (FBID, Name) VALUES('2F1R3B453', 'Jesse')", function (err)
-// db.sequelize.query("INSERT INTO posts (FBID, Name) VALUES(1, 'Math', 2)", function (err)
 
 module.exports = db;
