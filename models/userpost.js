@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize) {
   var UserP = sequelize.define("UserPost", {});
 
   // Post.associate = function (models) {

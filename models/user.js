@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  User.associate = models => {
+  User.associate = function(models) {
     User.belongsToMany(models.Post, {
       through: "UserPost",
       as: "Posts",
