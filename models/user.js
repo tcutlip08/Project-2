@@ -2,12 +2,33 @@ module.exports = function(sequelize, DataTypes) {
   console.log("user");
 
   var User = sequelize.define("User", {
+    //This Guy wasn't in the first push Nate made
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+      //This Guy wasn't in the first push Nate made
+    },
     FBID: {
       type: DataTypes.STRING
     },
     Name: {
       type: DataTypes.STRING
     }
+    //This Guy wasn't in the first push Nate made///////////////////////
+    // createdAt: {
+    //   type: DataTypes.DATE,
+    //   allowNull: false,
+    //   defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
+    // },
+    // updatedAt: {
+    //   type: DataTypes.DATE,
+    //   allowNull: false,
+    //   defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
+    // },
+    // timestamps: true
+    //This Guy wasn't in the first push Nate made///////////////////////
   });
 
   User.associate = function(models) {
@@ -18,16 +39,6 @@ module.exports = function(sequelize, DataTypes) {
       otherKey: "PostId"
     });
   };
-
-  // User.associate = function (models) {
-  //     User.hasMany(models.Post);
-  //   };
-
-  // User.associate = function(models) {
-  //   User.hasMany(models.UserPA, {
-  //     onDelete: "cascade"
-  //   });
-  // };
 
   User.seed = function() {
     console.log("called seed user");
