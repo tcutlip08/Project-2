@@ -1,25 +1,4 @@
 module.exports = function(sequelize, DataTypes) {
-<<<<<<< HEAD
-  var User = sequelize.define("User", {
-    FBID: DataTypes.STRING,
-    Name: DataTypes.STRING
-  });
-
-  User.associate = function(models) {
-    User.hasMany(models.Post, {
-      onDelete: "cascade"
-    });
-  };
-
-  //   User.create({
-  //     FBID: "F1R3B453",
-  //     Name: "Nate"
-  //   });
-  //   User.create({
-  //     FBID: "2F1R3B453",
-  //     Name: "Jesse"
-  //   });
-=======
   console.log("user");
 
   var User = sequelize.define("User", {
@@ -61,7 +40,6 @@ module.exports = function(sequelize, DataTypes) {
       Name: "Jesse"
     });
   };
->>>>>>> 3f3425f142211831b4c3fd6be545f95ade1ecbfe
 
   return User;
 };
