@@ -1,26 +1,29 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
+  // Load index page
+  app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+      res.render("index", {
+        msg: "Welcome!",
+        examples: dbExamples
+      });
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+  // Load example page and pass in an example by id
+  app.get("/example/:id", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(
       dbExample
     ) {
-      res.json(dbExample);
+      res.render("example", {
+        example: dbExample
+      });
     });
+  });
+
+  // Render 404 page for any unmatched routes
+  app.get("*", function(req, res) {
+    res.render("404");
   });
 };
