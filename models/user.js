@@ -2,10 +2,10 @@ module.exports = function(sequelize, DataTypes) {
   console.log("user");
 
   var User = sequelize.define("User", {
-    FBID: {
+    email: {
       type: DataTypes.STRING
     },
-    Name: {
+    name: {
       type: DataTypes.STRING
     }
   });
@@ -22,12 +22,12 @@ module.exports = function(sequelize, DataTypes) {
   User.seed = function() {
     console.log("called seed user");
     User.create({
-      FBID: "F1R3B453",
-      Name: "Nate"
+      email: "tcutlip08@gmail.com",
+      name: "Nate"
     });
     User.create({
-      FBID: "2F1R3B453",
-      Name: "Jesse"
+      email: "jessman51386@gmail.com",
+      name: "Jesse"
     });
   };
 

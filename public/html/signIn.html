@@ -1,108 +1,97 @@
 <!DOCTYPE html>
 
 <html class="no-js">
-  <!--<![endif]-->
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <!-- BootStrap jQuery -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<!--<![endif]-->
 
-    <style>
-      body {
-        font-family: "Lato", sans-serif;
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <!-- BootStrap jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
+  <style>
+    body {
+      font-family: "Lato", sans-serif;
+    }
+
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    #main {
+      transition: margin-left 0.5s;
+      padding: 16px;
+    }
+
+    @media screen and (max-height: 450px) {
       .sidenav {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
+        padding-top: 15px;
       }
 
       .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
+        font-size: 18px;
       }
+    }
+  </style>
+</head>
 
-      .sidenav a:hover {
-        color: #f1f1f1;
-      }
-
-      .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-      }
-
-      #main {
-        transition: margin-left 0.5s;
-        padding: 16px;
-      }
-
-      @media screen and (max-height: 450px) {
-        .sidenav {
-          padding-top: 15px;
-        }
-        .sidenav a {
-          font-size: 18px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!--[if lt IE 7]>
+<body>
+  <!--[if lt IE 7]>
       <p class="browsehappy">
         You are using an <strong>outdated</strong> browser. Please
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
 
-    <!-- <div class="pos-f-t">
+  <!-- <div class="pos-f-t">
       <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
           <h5 class="text-white h4">Collapsed content</h5>
@@ -154,131 +143,122 @@
       <a href="#">Contact</a>
     </div> -->
 
-    <form>
-      Email<br /><input type="text" name="email" id="email" /><br /><strong
-        ><span id="displayError"></span></strong
-      ><br />
-      Password<br /><input
-        type="password"
-        name="passWord"
-        id="passWord"
-      /><br />
-      <input type="submit" value="Sign In" id="signInBtn" />
-      <input type="submit" value="Sign Up" id="signUpBtn" />
-    </form>
+  <form>
+    Email<br /><input type="text" name="email" id="email" /><br /><strong><span id="displayError"></span></strong><br />
+    Password<br /><input type="password" name="passWord" id="passWord" /><br />
+    <input type="submit" value="Sign In" id="signInBtn" />
+    <input type="submit" value="Sign Up" id="signUpBtn" />
+  </form>
 
-    <button type="button" id="signOut">Sign Out</button>
+  <button type="button" id="signOut">Sign Out</button>
 
-    <script>
-      const config = {
-        apiKey: "AIzaSyB_m_T5HTRv8nJag2AiCxVKk-9ft_k0BzY",
-        authDomain: "project-2-a5345.firebaseapp.com",
-        databaseURL: "https://project-2-a5345.firebaseio.com",
-        projectId: "project-2-a5345",
-        storageBucket: "project-2-a5345.appspot.com",
-        messagingSenderId: "649772621947",
-        appId: "1:649772621947:web:36fce6153aa474885ec2de"
-      };
+  <script>
+    const config = {
+      apiKey: "AIzaSyB_m_T5HTRv8nJag2AiCxVKk-9ft_k0BzY",
+      authDomain: "project-2-a5345.firebaseapp.com",
+      databaseURL: "https://project-2-a5345.firebaseio.com",
+      projectId: "project-2-a5345",
+      storageBucket: "project-2-a5345.appspot.com",
+      messagingSenderId: "649772621947",
+      appId: "1:649772621947:web:36fce6153aa474885ec2de"
+    };
 
-      firebase.initializeApp(config);
+    firebase.initializeApp(config);
 
-      var database = firebase.database();
-      var user;
+    var database = firebase.database();
+    var user;
 
-      $("#signInBtn").on("click", function() {
-        event.preventDefault();
+    $("#signInBtn").on("click", function () {
+      event.preventDefault();
 
-        const email = $("#email")
-          .val()
-          .trim();
-        const password = $("#passWord")
-          .val()
-          .trim();
-        const auth = firebase.auth();
+      const email = $("#email")
+        .val()
+        .trim();
+      const password = $("#passWord")
+        .val()
+        .trim();
+      const auth = firebase.auth();
 
-        const promise = auth.signInWithEmailAndPassword(email, password);
-        $("#displayError").text("");
-        promise.catch(e => {
-          console.log(e.message);
-          promise.catch(e => {
-            console.log(e.message);
-            $("#displayError").text(e.message);
-          });
-        });
-
-        $("#userName").val("");
-        $("#passWord").val("");
-
-        console.log("sign in");
-      });
-
-      $("#signUpBtn").on("click", function() {
-        event.preventDefault();
-
-        const email = $("#email")
-          .val()
-          .trim();
-        const password = $("#passWord")
-          .val()
-          .trim();
-        const auth = firebase.auth();
-
-        const promise = auth.createUserWithEmailAndPassword(email, password);
-        $("#displayError").text("");
+      const promise = auth.signInWithEmailAndPassword(email, password);
+      $("#displayError").text("");
+      promise.catch(e => {
+        console.log(e.message);
         promise.catch(e => {
           console.log(e.message);
           $("#displayError").text(e.message);
         });
-
-        console.log("sign up");
       });
 
-      firebase.auth().onAuthStateChanged(firebaseUser => {
-        if (firebaseUser) {
-          console.log(firebaseUser);
-          user = firebaseUser;
+      $("#userName").val("");
+      $("#passWord").val("");
 
-          console.log(firebaseUser.email);
-        } else {
+      console.log("sign in");
+    });
 
-        }
+    $("#signUpBtn").on("click", function () {
+      event.preventDefault();
+
+      const email = $("#email")
+        .val()
+        .trim();
+      const password = $("#passWord")
+        .val()
+        .trim();
+      const auth = firebase.auth();
+
+      const promise = auth.createUserWithEmailAndPassword(email, password);
+      $("#displayError").text("");
+      promise.catch(e => {
+        console.log(e.message);
+        $("#displayError").text(e.message);
       });
 
-      $("#signOut").on("click", function() {
-        firebase.auth().signOut();
+      console.log("sign up");
+    });
 
-        console.log("sign out");
-      });
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+      if (firebaseUser) {
+        console.log(firebaseUser);
+        user = firebaseUser;
 
-      function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
+        console.log(firebaseUser.email);
+      } else {
+
       }
+    });
 
-      function closeNav() {
-        document.getElementById("mySidenav").style.width = "75px";
-        document.getElementById("main").style.marginLeft = "75px";
-        hide;
-      }
+    $("#signOut").on("click", function () {
+      firebase.auth().signOut();
 
-      $(document).ready(function() {
-        $(".closeNav").click(function() {
-          $(".mySidenav").hide(1000, function() {
-            alert("Hide() method is finished!");
-          });
-        });
-        $(".openNav").click(function() {
-          $("openNav").show(1000, function() {
-            alert("Show() method is finished!");
-          });
+      console.log("sign out");
+    });
+
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "75px";
+      document.getElementById("main").style.marginLeft = "75px";
+      hide;
+    }
+
+    $(document).ready(function () {
+      $(".closeNav").click(function () {
+        $(".mySidenav").hide(1000, function () {
+          alert("Hide() method is finished!");
         });
       });
-    </script>
+      $(".openNav").click(function () {
+        $("openNav").show(1000, function () {
+          alert("Show() method is finished!");
+        });
+      });
+    });
+  </script>
 
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-      async
-      defer
-    ></script>
-  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" async defer></script>
+</body>
+
 </html>
