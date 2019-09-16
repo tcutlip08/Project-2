@@ -2,14 +2,6 @@ module.exports = function(sequelize, DataTypes) {
   console.log("post");
 
   var Post = sequelize.define("Post", {
-    //This Guy wasn't in the first push Nate made
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true
-      //This Guy wasn't in the first push Nate made
-    },
     PosterID: DataTypes.INTEGER,
     Task: DataTypes.TEXT,
     Accepted: {

@@ -2,14 +2,6 @@ module.exports = function(sequelize, DataTypes) {
   console.log("user");
 
   var User = sequelize.define("User", {
-    //This Guy wasn't in the first push Nate made
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true
-      //This Guy wasn't in the first push Nate made
-    },
     FBID: {
       type: DataTypes.STRING
     },
