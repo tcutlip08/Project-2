@@ -8,19 +8,6 @@ module.exports = function(sequelize, DataTypes) {
     Name: {
       type: DataTypes.STRING
     }
-    //This Guy wasn't in the first push Nate made///////////////////////
-    // createdAt: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
-    // },
-    // updatedAt: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
-    // },
-    // timestamps: true
-    //This Guy wasn't in the first push Nate made///////////////////////
   });
 
   User.associate = function(models) {
