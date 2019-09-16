@@ -2,25 +2,12 @@ module.exports = function(sequelize, DataTypes) {
   console.log("user");
 
   var User = sequelize.define("User", {
-    FBID: {
+    email: {
       type: DataTypes.STRING
     },
-    Name: {
+    name: {
       type: DataTypes.STRING
     }
-    //This Guy wasn't in the first push Nate made///////////////////////
-    // createdAt: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
-    // },
-    // updatedAt: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
-    // },
-    // timestamps: true
-    //This Guy wasn't in the first push Nate made///////////////////////
   });
 
   User.associate = function(models) {
@@ -35,12 +22,12 @@ module.exports = function(sequelize, DataTypes) {
   User.seed = function() {
     console.log("called seed user");
     User.create({
-      FBID: "F1R3B453",
-      Name: "Nate"
+      email: "tcutlip08@gmail.com",
+      name: "Nate"
     });
     User.create({
-      FBID: "2F1R3B453",
-      Name: "Jesse"
+      email: "jessman51386@gmail.com",
+      name: "Jesse"
     });
   };
 

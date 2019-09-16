@@ -1,14 +1,22 @@
 var db = require("../models");
+// var path = require("path");
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
+    res.sendfile("./public/html/index.html");
+  });
+
+  app.get("/home", function(req, res) {
+    console.log("default");
+    db.User.findOne({ where: { email: req.params.email } }).then(function() {
+      res.sendfile("./public/html/home.html");
     });
+  });
+
+  app.get("/signIn", function(req, res) {
+    console.log("sign in");
+    res.sendfile("./public/html/signIn.html");
   });
 
   // Load example page and pass in an example by id
@@ -23,7 +31,7 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("/*", function(req, res) {
     res.render("404");
   });
 };
