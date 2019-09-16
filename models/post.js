@@ -13,19 +13,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     }
-    //This Guy wasn't in the first push Nate made///////////////////////
-    // createdAt: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
-    // },
-    // updatedAt: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
-    // },
-    // timestamps: true
-    //This Guy wasn't in the first push Nate made///////////////////////
   });
 
   Post.associate = models = function(models) {
