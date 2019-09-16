@@ -28,7 +28,15 @@ module.exports = function(sequelize, DataTypes) {
     console.log("called posts");
     Post.create({
       PosterID: 1,
-      Task: "Blow me"
+      Task: "Tutor"
+    });
+    Post.create({
+      PosterID: 2,
+      Task: "Laundry"
+    });
+    Post.create({
+      PosterID: 3,
+      Task: "Walk my dog"
     });
   };
 

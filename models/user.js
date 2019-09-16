@@ -29,6 +29,10 @@ module.exports = function(sequelize, DataTypes) {
       email: "jessman51386@gmail.com",
       name: "Jesse"
     });
+    User.create({
+      email: "saeedaltaf@gmail.com",
+      name: "Saeed"
+    });
   };
 
   return User;
