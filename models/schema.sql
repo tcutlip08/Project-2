@@ -30,14 +30,14 @@ CREATE TABLE `UserPost` (
     )
 );
 
-CREATE TABLE `UserPostAccepter` (
-    `ID` int  NOT NULL ,
-    `UserID` int  NOT NULL ,
-    `PostID` int  NOT NULL ,
-    PRIMARY KEY (
-        `ID`
-    )
-);
+-- CREATE TABLE `UserPostAccepter` (
+--     `ID` int  NOT NULL ,
+--     `UserID` int  NOT NULL ,
+--     `PostID` int  NOT NULL ,
+--     PRIMARY KEY (
+--         `ID`
+--     )
+-- );
 
 CREATE TABLE `Post` (
     `PostID` int  NOT NULL ,
@@ -58,8 +58,8 @@ REFERENCES `User` (`UserID`);
 ALTER TABLE `UserPost` ADD CONSTRAINT `fk_UserPost_PostID` FOREIGN KEY(`PostID`)
 REFERENCES `Post` (`PostID`);
 
-ALTER TABLE `UserPostAccepter` ADD CONSTRAINT `fk_UserPostAccepter_UserID` FOREIGN KEY(`UserID`)
-REFERENCES `User` (`UserID`);
+-- ALTER TABLE `UserPostAccepter` ADD CONSTRAINT `fk_UserPostAccepter_UserID` FOREIGN KEY(`UserID`)
+-- REFERENCES `User` (`UserID`);
 
-ALTER TABLE `UserPostAccepter` ADD CONSTRAINT `fk_UserPostAccepter_PostID` FOREIGN KEY(`PostID`)
-REFERENCES `Post` (`PostID`);
+-- ALTER TABLE `UserPostAccepter` ADD CONSTRAINT `fk_UserPostAccepter_PostID` FOREIGN KEY(`PostID`)
+-- REFERENCES `Post` (`PostID`);
