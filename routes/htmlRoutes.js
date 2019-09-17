@@ -27,6 +27,16 @@ module.exports = function(app) {
     );
   });
 
+  app.get("/signIn", function(req, res) {
+    console.log("sign in");
+    res.sendFile(path.join(__dirname, "../public/html/signIn.html"));
+  });
+
+  app.get("/signUp", function(req, res) {
+    console.log("sign up");
+    res.sendFile(path.join(__dirname, "../public/html/signUp.html"));
+  });
+
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(
