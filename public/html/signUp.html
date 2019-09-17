@@ -33,6 +33,8 @@
             <input type="text" aria-label="name" class="form-control" id="name" required>
         </div>
         <br>
+        <h4 id="displayError"></h4>
+        <br>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Email Address</span>
@@ -45,6 +47,21 @@
 </body>
 <script type='text/javascript'>
 
+    const config = {
+        apiKey: "AIzaSyB_m_T5HTRv8nJag2AiCxVKk-9ft_k0BzY",
+        authDomain: "project-2-a5345.firebaseapp.com",
+        databaseURL: "https://project-2-a5345.firebaseio.com",
+        projectId: "project-2-a5345",
+        storageBucket: "project-2-a5345.appspot.com",
+        messagingSenderId: "649772621947",
+        appId: "1:649772621947:web:36fce6153aa474885ec2de"
+    };
+
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
+    var user;
+
     $("#submit").on("click", function (event) {
         event.preventDefault();
         var isValid = true;
@@ -54,6 +71,20 @@
                 alert("Please fill out all fields before submitting!");
                 return isValid;
             }
+        });
+        const email = $("#email")
+            .val()
+            .trim();
+        const password = $("#name")
+            .val()
+            .trim();
+        const auth = firebase.auth();
+
+        const promise = auth.createUserWithEmailAndPassword(email, password);
+        $("#displayError").text("");
+        promise.catch(e => {
+            console.log(e.message);
+            $("#displayError").text(e.message);
         });
         var newUser = {
             email: $("#email").val().trim(),
@@ -67,6 +98,21 @@
             url: "/signUp/new",
             data: JSON.stringify(newUser)
         });
+    });
+
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (firebaseUser) {
+            $.ajax({
+                url: "/redirect/home",
+                method: 'GET'
+            }).then(function (res) { });
+            console.log(firebaseUser);
+            user = firebaseUser;
+
+            console.log(firebaseUser.email);
+        } else {
+
+        }
     });
 
 </script>

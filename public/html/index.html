@@ -58,11 +58,6 @@
 
     var currentURL = window.location.origin;
 
-    // $("#signIn").on("click", function () {
-    //   console.log(currentURL + "/signIn");
-    //   $.get(currentURL + "/signIn");
-    // });
-
     firebase.auth().onAuthStateChanged(fbUser => {
       console.log("fuck");
       if (fbUser) {

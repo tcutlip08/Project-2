@@ -16,19 +16,15 @@ module.exports = function(app) {
   });
 
   app.get("/home", function(req, res) {
-    console.log("default");
-    // db.User.findOne({ where: { email: req.params.email } }).then(function(
-    db.User.findOne({ where: { email: "tcutlip08@gmail.com" } }).then(function(
-      dbUser
-    ) {
-      console.log(dbUser.dataValues);
-      db.Post.findAll({ where: { PosterId: dbUser.dataValues.id } }).then(
-        function(dbPost) {
-          console.log(dbPost[0].dataValues);
-          res.json(dbPost[0].dataValues);
-        }
-      );
-    });
+    res.sendFile(path.join(__dirname, "../public/html/home.html"));
+  });
+
+  app.get("/redirect/home", function(req, res) {
+    console.log("send me HOME!!");
+    res.redirect(
+      // path.join(__dirname, "../public/html/home.html", (safe = true))
+      "/"
+    );
   });
 
   // Load example page and pass in an example by id

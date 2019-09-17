@@ -208,8 +208,15 @@
       console.log("sign up");
     });
 
+    // var currentURL = window.location.origin;
+
     firebase.auth().onAuthStateChanged(firebaseUser => {
       if (firebaseUser) {
+        console.log("signed in");
+        $.ajax({
+          type: "GET",
+          url: "/redirect/home",
+        });
         console.log(firebaseUser);
         user = firebaseUser;
 

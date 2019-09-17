@@ -7,23 +7,62 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
   // GET route for getting all of the posts
-  app.get("/api/posts", function(req, res) {
-    var query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    }
-    db.Post.findAll({
-      where: query,
-      include: [db.User]
-    }).then(function(dbPost) {
+  app.get("/api/allPosts", function(req, res) {
+    db.Post.findAll({}).then(function(dbPost) {
       res.json(dbPost);
     });
   });
-  // Get route for retrieving a single post
+
+  app.get("/api/history", function(req, res) {
+    console.log("default");
+    // db.User.findOne({ where: { email: req.params.email } }).then(function(
+    db.User.findOne({ where: { email: "tcutlip08@gmail.com" } }).then(function(
+      dbUser
+    ) {
+      console.log(dbUser.dataValues);
+      db.Post.findAll({
+        where: {
+          $or: [
+            { PosterId: dbUser.dataValues.id },
+            { AccepterId: dbUser.dataValues.id }
+          ]
+        }
+      }).then(function(dbPost) {
+        console.log(dbPost[0].dataValues);
+        res.json(dbPost[0].dataValues);
+      });
+    });
+  });
+
+  app.get("/api/home", function(req, res) {
+    console.log("default");
+    // db.User.findOne({ where: { email: req.params.email } }).then(function(
+    db.User.findOne({ where: { email: "tcutlip08@gmail.com" } }).then(function(
+      dbUser
+    ) {
+      db.Post.findAll({
+        where: {
+          $or: [
+            { $ne: { PosterId: dbUser.dataValues.id } },
+            { $ne: { AccepterId: dbUser.dataValues.id } }
+          ]
+        }
+      }).then(function(dbPost) {
+        res.json(dbPost);
+      });
+    });
+  });
+
+  // POST route for saving a new post
+  app.post("/signUp/new", function(req, res) {
+    console.log("new user");
+    db.User.create({
+      email: req.body.email,
+      name: req.body.name
+    });
+  });
+
   app.get("/api/posts/:id", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
     db.Post.findOne({
       where: {
         id: req.params.id
@@ -31,17 +70,6 @@ module.exports = function(app) {
       include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
-    });
-  });
-  // POST route for saving a new post
-  app.post("/signUp/new", function(req, res) {
-    console.log("new user");
-    // console.log(res);
-    // console.log(req.body);
-    // db.User.create({ email: "roopa-16@gmail.com", name: "Roopa" }).then();
-    db.User.create({
-      email: req.body.email,
-      name: req.body.name
     });
   });
 
