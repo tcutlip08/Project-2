@@ -42,6 +42,13 @@
             <input type="text" aria-label="email" class="form-control" id="email" required>
         </div>
         <br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Password</span>
+            </div>
+            <input type="text" aria-label="password" class="form-control" id="password" required>
+            <input type="text" aria-label="confirm" class="form-control" id="confirm"  placeholder="Confirm your Password" required>
+        </div>
         <button id="submit" type="submit" class="btn btn-success btn-lg">Submit</button>
     </div>
 </body>
@@ -75,7 +82,7 @@
         const email = $("#email")
             .val()
             .trim();
-        const password = $("#name")
+        const password = $("#password")
             .val()
             .trim();
         const auth = firebase.auth();
