@@ -7,6 +7,14 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/html/index.html"));
   });
 
+  app.get("/signIn", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/html/signIn.html"));
+  });
+
+  app.get("/signUp", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/html/signUp.html"));
+  });
+
   app.get("/home", function(req, res) {
     console.log("default");
     // db.User.findOne({ where: { email: req.params.email } }).then(function(

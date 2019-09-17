@@ -36,7 +36,8 @@ module.exports = function(app) {
   // POST route for saving a new post
   app.post("/signUp/new", function(req, res) {
     console.log("new user");
-    console.log(req.body);
+    // console.log(res);
+    // console.log(req.body);
     // db.User.create({ email: "roopa-16@gmail.com", name: "Roopa" }).then();
     db.User.create({
       email: req.body.email,
@@ -44,11 +45,6 @@ module.exports = function(app) {
     });
   });
 
-  // app.post("/api/posts", function(req, res) {
-  //   db.Post.create(req.body).then(function(dbPost) {
-  //     res.json(dbPost);
-  //   });
-  // });
   // DELETE route for deleting posts
   app.delete("/api/posts/:id", function(req, res) {
     db.Post.destroy({

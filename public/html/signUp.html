@@ -30,14 +30,14 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">First and last name</span>
             </div>
-            <input type="text" aria-label="name" class="form-control" required>
+            <input type="text" aria-label="name" class="form-control" id="name" required>
         </div>
         <br>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Email Address</span>
             </div>
-            <input type="text" aria-label="email" class="form-control" required>
+            <input type="text" aria-label="email" class="form-control" id="email" required>
         </div>
         <br>
         <button id="submit" type="submit" class="btn btn-success btn-lg">Submit</button>
@@ -55,7 +55,18 @@
                 return isValid;
             }
         });
-        return isValid;
+        var newUser = {
+            email: $("#email").val().trim(),
+            name: $("#name").val().trim()
+        }
+        $.ajax({
+            headers: {
+                "Content-Type": "application/json"
+            },
+            type: "POST",
+            url: "/signUp/new",
+            data: JSON.stringify(newUser)
+        });
     });
 
 </script>
