@@ -36,6 +36,7 @@ module.exports = function(app) {
   // POST route for saving a new post
   app.post("/signUp/new", function(req, res) {
     console.log("new user");
+    console.log(res);
     console.log(req.body);
     // db.User.create({ email: "roopa-16@gmail.com", name: "Roopa" }).then();
     db.User.create({
