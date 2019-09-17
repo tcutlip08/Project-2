@@ -12,6 +12,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@smarthtmlelements/smart-bootstrap": "^4.4.4",
     "@smarthtmlelements/smart-core": "^4.4.0",
     "@smarthtmlelements/smart-custom-element": "^4.4.0",
     "@smarthtmlelements/smart-elements": "^4.4.0",
