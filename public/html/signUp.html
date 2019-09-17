@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <header>
     <title>Title</title>
-    <link rel='stylesheet' href='reset.css'>
+    <!-- <link rel='stylesheet' href='reset.css'> -->
     <!-- BootStrap -->
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
         integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
@@ -19,17 +19,45 @@
     <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js'></script>
     <!-- Firebase -->
     <script src='https://www.gstatic.com/firebasejs/4.12.0/firebase.js'></script>
-    <link rel='stylesheet' href='style.css'>
+    <link rel='stylesheet' href='../styles/signUp.css'>
 </header>
 
 <body>
-    <div class='container'>
-        <div class='row'>
-            <div class='col'>
+    <div class="jumbotron">
+        <h1>Submission Form</h1>
+        <br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">First and last name</span>
             </div>
+            <input type="text" aria-label="name" class="form-control" required>
         </div>
+        <br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Email Address</span>
+            </div>
+            <input type="text" aria-label="email" class="form-control" required>
+        </div>
+        <br>
+        <button id="submit" type="submit" class="btn btn-success btn-lg">Submit</button>
     </div>
 </body>
-<script type='text/javascript' src='javascript/magic.js'></script>
+<script type='text/javascript'>
+
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
+        var isValid = true;
+        $(".form-control").each(function () {
+            if ($(this).val() === "") {
+                isValid = false;
+                alert("Please fill out all fields before submitting!");
+                return isValid;
+            }
+        });
+        return isValid;
+    });
+
+</script>
 
 </html>

@@ -11,16 +11,16 @@ module.exports = function(app) {
     console.log("default");
     // db.User.findOne({ where: { email: req.params.email } }).then(function(
     db.User.findOne({ where: { email: "tcutlip08@gmail.com" } }).then(function(
-      data
+      dbUser
     ) {
-      console.log(data.dataValues);
-      res.sendFile(path.join(__dirname, "../public/html/home.html"));
+      console.log(dbUser.dataValues);
+      db.Post.findAll({ where: { PosterId: dbUser.dataValues.id } }).then(
+        function(dbPost) {
+          console.log(dbPost[0].dataValues);
+          res.json(dbPost[0].dataValues);
+        }
+      );
     });
-  });
-
-  app.get("/signIn", function(req, res) {
-    console.log("sign in");
-    res.sendFile(path.join(__dirname, "../public/html/signIn.html"));
   });
 
   // Load example page and pass in an example by id
