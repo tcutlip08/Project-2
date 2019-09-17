@@ -25,10 +25,11 @@ if (process.env.NODE_ENV === "test") {
 
 Object.keys(db).forEach(function(modelName) {
   db.User.findAll({}).then(function(data) {
+    console.log(db[modelName].seed);
     if (Object.keys(data).length === 0) {
-      if (db[modelName].seed) {
-        db[modelName].seed();
-      }
+      // if (db[modelName].seed) {
+      db[modelName].seed();
+      // }
     }
   });
 });
