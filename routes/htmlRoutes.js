@@ -7,33 +7,15 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/html/index.html"));
   });
 
-  app.get("/signIn", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/signIn.html"));
-  });
-
-  app.get("/signUp", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/html/signUp.html"));
-  });
-
   app.get("/home", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/home.html"));
   });
 
-  app.get("/redirect/home", function(req, res) {
-    console.log("send me HOME!!");
-    res.redirect(
-      // path.join(__dirname, "../public/html/home.html", (safe = true))
-      "/"
-    );
-  });
-
   app.get("/signIn", function(req, res) {
-    console.log("sign in");
     res.sendFile(path.join(__dirname, "../public/html/signIn.html"));
   });
 
   app.get("/signUp", function(req, res) {
-    console.log("sign up");
     res.sendFile(path.join(__dirname, "../public/html/signUp.html"));
   });
 
@@ -46,10 +28,5 @@ module.exports = function(app) {
         example: dbExample
       });
     });
-  });
-
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.send("404");
   });
 };
