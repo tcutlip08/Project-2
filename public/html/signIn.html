@@ -173,13 +173,14 @@
 
       const promise = auth.signInWithEmailAndPassword(email, password);
       $("#displayError").text("");
-      promise.catch(e => {
+      promise.then((result) => {
+        // result.user
+        // window.location.href = "/home";
+      }).catch(e => {
         console.log(e.message);
-        promise.catch(e => {
-          console.log(e.message);
-          $("#displayError").text(e.message);
-        });
+        $("#displayError").text(e.message);
       });
+
 
       $("#userName").val("");
       $("#passWord").val("");
@@ -198,14 +199,24 @@
         .trim();
       const auth = firebase.auth();
 
-      const promise = auth.createUserWithEmailAndPassword(email, password);
-      $("#displayError").text("");
-      promise.catch(e => {
-        console.log(e.message);
-        $("#displayError").text(e.message);
-      });
+      const Login = async () => {
+        console.log('workin');
+        $("#displayError").text("");
+        const promise = await auth.createUserWithEmailAndPassword(email, password)
+        // promise.then(() => {
+        // console.log('herro')
+        // }
+        // ).catch(e => {
+        //   console.log(e.message);
+        //   $("#displayError").text(e.message);
+        // });
 
-      console.log("sign up");
+        // console.log("sign up");;
+        console.log(promise);
+      }
+      Login();
+
+
     });
 
     // var currentURL = window.location.origin;
@@ -213,10 +224,7 @@
     firebase.auth().onAuthStateChanged(firebaseUser => {
       if (firebaseUser) {
         console.log("signed in");
-        $.ajax({
-          type: "GET",
-          url: "/redirect/home",
-        });
+        window.location.href = "/home";
         console.log(firebaseUser);
         user = firebaseUser;
 

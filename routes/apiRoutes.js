@@ -1,7 +1,3 @@
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
-
 var db = require("../models");
 // Routes
 // =============================================================
@@ -10,6 +6,12 @@ module.exports = function(app) {
   app.get("/api/allPosts", function(req, res) {
     db.Post.findAll({}).then(function(dbPost) {
       res.json(dbPost);
+    });
+  });
+
+  app.get("/api/allUsers", function(req, res) {
+    db.User.findAll({}).then(function(dbUser) {
+      res.json(dbUser);
     });
   });
 
@@ -28,8 +30,8 @@ module.exports = function(app) {
           ]
         }
       }).then(function(dbPost) {
-        console.log(dbPost[0].dataValues);
-        res.json(dbPost[0].dataValues);
+        console.log(dbPost);
+        res.json(dbPost);
       });
     });
   });
@@ -40,6 +42,7 @@ module.exports = function(app) {
     db.User.findOne({ where: { email: "tcutlip08@gmail.com" } }).then(function(
       dbUser
     ) {
+      // console.log(dbUser.dataValues.id);
       db.Post.findAll({
         where: {
           $or: [
@@ -60,6 +63,34 @@ module.exports = function(app) {
     db.User.create({
       email: req.body.email,
       name: req.body.name
+    });
+  });
+
+  app.post("/post/new", function(req, res) {
+    console.log("new post");
+    db.Post.create({
+      PosterID: req.body.id,
+      Task: req.body.task
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+
+  app.get("/api/accept/:postID/:userID", function(req, res) {
+    console.log("accept api");
+    // console.log(res);
+    db.Post.update(
+      {
+        AccepterID: req.params.userID,
+        Accepted: true
+      },
+      {
+        where: {
+          id: req.params.postID
+        }
+      }
+    ).then(function(data) {
+      res.json(data);
     });
   });
 

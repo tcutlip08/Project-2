@@ -15,6 +15,11 @@ app.use(express.static("public"));
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
+// Render 404 page for any unmatched routes
+app.get("*", function(req, res) {
+  res.send("404");
+});
+
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
