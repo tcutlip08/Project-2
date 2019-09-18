@@ -9,6 +9,9 @@ module.exports = function(app) {
 
   app.get("/home", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/home.html"));
+    //below would connect to the new home.html
+    // res.sendFile(path.join(__dirname, "../template/home.html"));
+    //above would connect to the new home.html
   });
 
   app.get("/signIn", function(req, res) {
