@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/sources/styles/demos.css" />
     <link rel="stylesheet" type="text/css" href="../styles/sources/styles/common.css" />
     <link rel="stylesheet" type="text/css" href="../styles/home.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.2.0/webcomponents-lite.js"></script>
@@ -23,6 +24,8 @@
 </head>
 
 <body class="viewport">
+
+   <div class="container">
     <smart-cards>
         <smart-card class="expandable-card" item-template="customTemplate"></smart-card>
         <smart-card class="expandable-card" item-template="customTemplate"></smart-card>
@@ -35,8 +38,8 @@
 
     <template id="customTemplate">
         <div class="card-image">
-            <img src="{{image}}">
-            <h2 class="card-title">{{title}}</h2>
+            <!-- <img src="{{image}}"> -->
+            <!-- <h2 class="card-title">{{title}}</h2> -->
         </div>
         <div class="card-comment">
             {{comment}}
@@ -50,6 +53,7 @@
             {{content}}
         </div>
     </template>
+</div> 
 </body>
 
 </html>
