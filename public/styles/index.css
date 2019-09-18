@@ -86,8 +86,12 @@ div {
   margin-top: 5%;
 }
 
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+/*The below CSS is for the Modal Sign In */
+
+/* body {font-family: Arial, Helvetica, sans-serif;
+   
+} */
+form {border: 3px solid #705D56;}
 
 input[type=text], input[type=password] {
   width: 100%;
@@ -120,16 +124,20 @@ button:hover {
 
 .imgcontainer {
   text-align: center;
-  margin: 24px 0 12px 0;
+  /* margin: 24px 0 12px 0; */
+  padding-top: 10px;
 }
 
 img.avatar {
-  width: 40%;
+  /* width: 40%; */
   border-radius: 50%;
+  height: 400px;
+  width: 400px;
 }
 
 .container {
-  padding: 16px;
+  /* padding: 16px; */
+  float: center;
 }
 
 span.psw {
@@ -146,4 +154,18 @@ span.psw {
   .cancelbtn {
      width: 100%;
   }
+}
+
+form.modal-content animate {
+  width: 50%;
+}
+
+.modal {
+  width: 35%;
+  float: center;
+}
+
+.signInModal {
+  text-align: center;
+  align-content: center;
 }

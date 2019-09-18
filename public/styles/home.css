@@ -31,7 +31,7 @@ smart-card.expandable-card .card-image .card-title {
   color: white;
   font-size: 30px;
   background-color: #00000087;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 smart-card.expandable-card .card-content,
