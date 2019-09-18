@@ -23,8 +23,8 @@ module.exports = function(app) {
       db.Post.findAll({
         where: {
           $or: [
-            { PosterId: dbUser.dataValues.id },
-            { AccepterId: dbUser.dataValues.id }
+            { PosterID: dbUser.dataValues.id },
+            { AccepterID: dbUser.dataValues.id }
           ]
         }
       }).then(function(dbPost) {
@@ -43,8 +43,8 @@ module.exports = function(app) {
       db.Post.findAll({
         where: {
           $or: [
-            { $ne: { PosterId: dbUser.dataValues.id } },
-            { $ne: { AccepterId: dbUser.dataValues.id } }
+            { PosterID: { $ne: dbUser.dataValues.id } },
+            { AccepterID: { $ne: dbUser.dataValues.id } }
           ]
         }
       }).then(function(dbPost) {
@@ -75,15 +75,15 @@ module.exports = function(app) {
   });
 
   // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
+  // app.delete("/api/posts/:id", function(req, res) {
+  //   db.Post.destroy({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(function(dbPost) {
+  //     res.json(dbPost);
+  //   });
+  // });
   // PUT route for updating posts
   app.put("/api/posts", function(req, res) {
     db.Post.update(req.body, {
