@@ -132,9 +132,7 @@
 
     firebase.auth().onAuthStateChanged(fbUser => {
       if (fbUser) {
-        console.log("fire");
-        console.log(fbUser.email);
-        // $.get(currentURL + "/home");
+        window.location.href = "/home";
       }
     });
 

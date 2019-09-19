@@ -76,65 +76,6 @@
 </head>
 
 <body>
-  <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
-
-  <!-- <div class="pos-f-t">
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <h5 class="text-white h4">Collapsed content</h5>
-          <span class="text-muted">Toggleable via the navbar brand.</span>
-        </div>
-      </div>
-      <nav class="navbar navbar-dark bg-dark">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarToggleExternalContent"
-          aria-controls="navbarToggleExternalContent"
-          aria-expanded="true"
-          aria-label="Toggle navigation"
-        >
-          <span style="font-size:30px;cursor:pointer" onclick="openNav()"
-            >&#9776; open</span
-          >
-        </button>
-      </nav>
-    </div>
-
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
-      >
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()"
-        >&#9776; open</span
-      >
-      <a href="dashboard.html">Dashboard Post</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
-    </div>
-
-    <div id="main">
-      <h2>Sidenav Push Example</h2>
-      <p>
-        Click on the element below to open the side navigation menu, and push
-        this content to the right.
-      </p>
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()"
-        >&#9776; open</span
-      >
-      <a href="dashboard.html">Dashboard Post</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
-    </div> -->
-
   <form>
     Email<br /><input type="text" name="email" id="email" /><br /><strong><span id="displayError"></span></strong><br />
     Password<br /><input type="password" name="passWord" id="passWord" /><br />
@@ -221,14 +162,9 @@
 
     // var currentURL = window.location.origin;
 
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-      if (firebaseUser) {
-        console.log("signed in");
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
         window.location.href = "/home";
-        console.log(firebaseUser);
-        user = firebaseUser;
-
-        console.log(firebaseUser.email);
       } else {
 
       }
@@ -236,8 +172,6 @@
 
     $("#signOut").on("click", function () {
       firebase.auth().signOut();
-
-      console.log("sign out");
     });
 
     function openNav() {
