@@ -36,10 +36,11 @@
       </p>
       <hr class="my-4">
       <p>Get started by creating an account or logging in</p>
-      <a class="btn btn-light btn-lg" href="/signIn" role="button">Sign In </a>
+      <a class="btn btn-light btn-lg" href="/signIn" role="button" onclick="document.getElementById('id01')"
+        style="width:auto;">Sign In </a>
+      <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
       <a class="btn btn-light btn-lg" href="/signUp" role="button">Sign up </a>
       <a class="btn btn-light btn-lg" id="signOut" role="button">Sign Out </a>
-      <a class="btn btn-light btn-lg" id="post" role="button">Post </a>
     </div>
 
     <h2>Modal Login Form</h2>
@@ -50,7 +51,7 @@
     <!-- <div id="container" class="signInModal"> -->
     <div id="id01" class="modal">
 
-      <form class="modal-content animate" action="/action_page.php" method="post">
+      <form class="modal-content animate" method="post">
         <div class="imgcontainer">
           <span onclick="document.getElementById('id01').style.display='none'" class="close"
             title="Close Modal">&times;</span>
@@ -116,7 +117,7 @@
       //   id: $("data-id").val()
       // }
       var newPost = {
-        task: "blow me",
+        task: "try me",
         id: 1
       }
       $.ajax({
@@ -131,6 +132,7 @@
 
     firebase.auth().onAuthStateChanged(fbUser => {
       if (fbUser) {
+        console.log("fire");
         console.log(fbUser.email);
         // $.get(currentURL + "/home");
       }
@@ -138,7 +140,7 @@
 
     $("#signOut").on("click", function () {
       firebase.auth().signOut();
-      console.log("sign out");
+      // console.log("sign out");
     });
 
     var modal = document.getElementById('id01');
