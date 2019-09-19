@@ -43,8 +43,8 @@
             <input type="password" placeholder="Confirm Password" id="confirm" name="confirm" required>
 
             <div class="clearfix">
-                <button type="button" class="cancel">Cancel</button>
                 <button type="submit" class="signup">Sign Up</button>
+                <button type="button" class="cancel">Cancel</button>
             </div>
         </div>
     </form>
@@ -65,9 +65,10 @@
 
     var database = firebase.database();
 
-    $(".submit").on("click", function (event) {
+    $(".signup").on("click", function (event) {
         var newUser = {};
         event.preventDefault();
+        console.log($("#password").val().trim() + " " + $("#confirm").val().trim())
         if ($("#password").val().trim() === $("#confirm").val().trim()) {
             newUser = {
                 email: $("#email")
@@ -83,29 +84,31 @@
         }
 
         const auth = firebase.auth();
-
-        const promise = auth.createUserWithEmailAndPassword(email, password);
+        console.log(email + " " + password);
+        const promise = auth.createUserWithEmailAndPassword(newUser.email, newUser.password);
         $("#displayError").text("");
+
+        promise.then(data => {
+            console.log(data);
+            $.ajax({
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                type: "POST",
+                url: "/signUp/new",
+                data: JSON.stringify(newUser)
+            });
+        });
 
         promise.catch(e => {
             console.log(e.message);
             $("#displayError").text(e.message);
-        });
-
-        $.ajax({
-            headers: {
-                "Content-Type": "application/json"
-            },
-            type: "POST",
-            url: "/signUp/new",
-            data: JSON.stringify(newUser)
         });
     });
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             window.location.href = "/home";
-            console.log("Signed in as: " + user.email);
         } else {
 
         }

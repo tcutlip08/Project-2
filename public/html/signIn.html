@@ -22,8 +22,7 @@
 </head>
 
 <body>
-
-  <!-- <form>
+  <form>
     Email<br /><input type="text" name="email" id="email" /><br /><strong><span id="displayError"></span></strong><br />
     Password<br /><input type="password" name="passWord" id="passWord" /><br />
     <input type="submit" value="Sign In" id="signInBtn" />
@@ -206,14 +205,9 @@
 
     // var currentURL = window.location.origin;
 
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-      if (firebaseUser) {
-        console.log("signed in");
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
         window.location.href = "/home";
-        console.log(firebaseUser);
-        user = firebaseUser;
-
-        console.log(firebaseUser.email);
       } else {
 
       }
@@ -221,8 +215,6 @@
 
     $("#signOut").on("click", function () {
       firebase.auth().signOut();
-
-      console.log("sign out");
     });
 
     function openNav() {

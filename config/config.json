@@ -2,6 +2,7 @@
   "development": {
     "username": "root",
     "password": "roopa16",
+    "password": "no",
     "database": "SLR_DB",
     "host": "localhost",
     "dialect": "mysql"
