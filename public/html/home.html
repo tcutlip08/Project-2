@@ -4,7 +4,7 @@
 	<title>SLR Dashboard</title>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
-
+	<link rel="stylesheet" href="../styles/home.css">
 	<!-- Animate.css   taking this out breaks everything-->
 	<link rel="stylesheet" href="../html/template/css/animate.css">
 	<!-- Bootstrap   taking this out breaks everything-->
@@ -26,20 +26,24 @@
 				aria-expanded="false" aria-controls="navbar"><i></i></a>
 			<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
 				<div class="text-center">
+						<h1 id="colorlib-logo"><a href="index.html">
+								Student Life Raft
+								<!-- (Display User Name Here in side bar) -->
+							</a></h1>
 					<!--Below is the user image for the side nav bar  class=author-img shows up here and style.css-->
-					<div class="author-img" style="background-image: url(../html/template/images/about.jpg);"></div>
+					<div class="author-img" style="background-image: IMG_2382JPG"></div>
 					<!--Below is the link to the section, in this case the top of the page
                     colorlib-logo shows up here and style.css-->
 					<h1 id="colorlib-logo"><a href="index.html">
-							Jackson Ford
+							Roopa Patel
 							<!-- (Display User Name Here in side bar) -->
 						</a></h1>
 					<!-- class=position shows up here and style.css -->
 					<span class="position"><a href="#">
-							UI/UX/Designer
+							Student 
 							<!-- (Display Text under Name Here in side bar) -->
 						</a>
-						in Philippines
+						at Georgia State University
 						<!-- (Display Text under Name Here in side bar) -->
 
 						<!-- overflow-y: scroll    will get rid of the scroll bar on the side of the user pic -->
@@ -53,6 +57,7 @@
 							<!-- <li class="active"><a href="#" data-nav-section="home">Home</a></li> -->
 							<!-- <li><a href="#" data-nav-section="about">About</a></li> -->
 							<!-- <li><a href="#" data-nav-section="experience">Experience</a></li> -->
+							<li><a href="#" data-nav-section="aboutMe">About Me</a></li>
 							<li><a href="#" data-nav-section="createPost">Create A Post</a></li>
 							<li><a href="#" data-nav-section="history">Post History</a></li>
 							<li><a href="#" data-nav-section="completedPosts">Your Completed Posts</a></li>
@@ -79,6 +84,64 @@
 			<!-- Body wrapper for everything except the navbar-->
 			<div id="colorlib-main">
 				<!-- Body wrapper for everything except the navbar-->
+
+				<section class="colorlib-blog" data-section="aboutMe">
+						<div class="colorlib-narrow-content">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+									data-animate-effect="fadeInLeft">
+									<h2 class="colorlib-heading">Areas of Expertise</h2>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+									<div class="blog-entry">
+										<img src="../html/template/images/blog-1.jpg" class="img-responsive"
+											alt="HTML5 Bootstrap Template by colorlib.com">
+										<div class="desc">
+											<br>
+											<h3 id="subject">General Chemistry and Organic Chemisty</h3>
+											<p>I have recieved all A+ in these classes. I also have Teaching Assistant
+												experience for Organic Chemistry.
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
+									<div class="blog-entry">
+										<img src="../html/template/images/blog-2.jpg" class="img-responsive"
+											alt="HTML5 Bootstrap Template by colorlib.com">
+										<div class="desc">
+											<br>
+											<h3>Algebra, Calculus, and Linear Alebra</h3>
+											<p>I made solid A's in the class. I have also led study groups 
+												for my class. 
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+									<div class="blog-entry">
+										<img src="../html/template/images/blog-3.jpg" class="img-responsive"
+											alt="HTML5 Bootstrap Template by colorlib.com">
+										<div class="desc">
+											<br>
+											<h3>Physics</h3>
+											<p>Overall I have made B+ in both of the introductory physics. On tests I have 
+												always made over 90's.
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 animate-box">
+									<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i
+												class="icon-reload"></i></a></p>
+								</div>
+							</div>
+						</div>
+					</section>
 
 				<section class="colorlib-contact" data-section="createPost">
 					<div class="colorlib-narrow-content">
@@ -330,38 +393,51 @@
 						</div>
 
 						<div class="row">
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="project" style="background-image: url(../html/template/images/img-1.jpg);">
+							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="project" style="background-image: url(../html/template/images/1.jpeg);">
 									<div class="desc">
 										<div class="con">
-											<h3><a href="work.html">Post 01</a></h3>
-											<span>Website</span>
+											<h3><a href="work.html">Timothy Cutlip</a></h3>
+											<span>Hey there I am looking for a Physics tutor. 
+												I need help in thermodymanics for an upcoming test I have. 
+												I have homeworks that I could use assistance on.
+											</span>
+											<h1> </h1>
+											<h1> </h1>
+											<h1> </h1>
+											<h3><a href="work.html">Message</a> <a href="work.html">More Info</a></h3>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="project" style="background-image: url(../html/template/images/2.jpeg);">
+									<div class="desc">
+										<div class="con">
+											<h3><a href="work.html">Jesse McKinney</a></h3>
+											<span>Hello! I am calulus student and I could use some help with 
+												Derivatives. I have a couple of quizes that I would like to 
+												go over.
+											</span>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="project" style="background-image: url(../html/template/images/img-2.jpg);">
+							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInTop">
+								<div class="project" style="background-image: url(../html/template/images/3.jpeg);">
 									<div class="desc">
 										<div class="con">
-											<h3><a href="work.html">Post 02</a></h3>
-											<span>Animation</span>
+											<h3><a href="work.html">Saeed Altaf</a></h3>
+											<span>Hi, I am taking World History! I have a paper that is due soon and 
+												I would like some help with editting my paper.
+											</span>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInTop">
-								<div class="project" style="background-image: url(../html/template/images/img-3.jpg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Post 03</a></h3>
-											<span>Illustration</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInBottom">
-								<div class="project" style="background-image: url(../html/template/images/img-4.jpg);">
+							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInBottom">
+								<div class="project" style="background-image: url(../html/template/images/4.jpeg);">
 									<div class="desc">
 										<div class="con">
 											<h3><a href="work.html">Post 04</a></h3>
@@ -370,8 +446,8 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="project" style="background-image: url(../html/template/images/img-5.jpg);">
+							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="project" style="background-image: url(../html/template/images/1.jpeg);">
 									<div class="desc">
 										<div class="con">
 											<h3><a href="work.html">Post 05</a></h3>
@@ -380,8 +456,8 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="project" style="background-image: url(../html/template/images/img-6.jpg);">
+							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="project" style="background-image: url(../html/template/images/4.jpeg);">
 									<div class="desc">
 										<div class="con">
 											<h3><a href="work.html">Post 06</a></h3>
