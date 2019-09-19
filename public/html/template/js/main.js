@@ -1,3 +1,32 @@
+var config = {
+  apiKey: "AIzaSyB_m_T5HTRv8nJag2AiCxVKk-9ft_k0BzY",
+  authDomain: "project-2-a5345.firebaseapp.com",
+  databaseURL: "https://project-2-a5345.firebaseio.com",
+  projectId: "project-2-a5345",
+  storageBucket: "project-2-a5345.appspot.com",
+  messagingSenderId: "649772621947",
+  appId: "1:649772621947:web:36fce6153aa474885ec2de"
+};
+
+firebase.initializeApp(config);
+
+// var database = firebase.database();
+
+var currentURL = window.location.origin;
+
+firebase.auth().onAuthStateChanged(function(fbUser) {
+  if (fbUser) {
+    console.log("Signed in as: " + fbUser.email);
+  } else {
+    window.location.href = "/";
+  }
+});
+
+$("#signOut").on("click", function() {
+  console.log("sign out");
+  firebase.auth().signOut();
+});
+
 (function() {
   "use strict";
 
