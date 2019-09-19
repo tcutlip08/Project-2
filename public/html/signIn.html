@@ -6,7 +6,8 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <!-- BootStrap jQuery -->
+    <link rel='stylesheet' href='../styles/signUp.css'>
+    <!-- BootStrap jQuery -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -18,131 +19,115 @@
     crossorigin="anonymous"></script>
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-
-  <style>
-    body {
-      font-family: "Lato", sans-serif;
-    }
-
-    .sidenav {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 60px;
-    }
-
-    .sidenav a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
-    }
-
-    .sidenav a:hover {
-      color: #f1f1f1;
-    }
-
-    .sidenav .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-    }
-
-    #main {
-      transition: margin-left 0.5s;
-      padding: 16px;
-    }
-
-    @media screen and (max-height: 450px) {
-      .sidenav {
-        padding-top: 15px;
-      }
-
-      .sidenav a {
-        font-size: 18px;
-      }
-    }
-  </style>
 </head>
 
 <body>
-  <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
 
-  <!-- <div class="pos-f-t">
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <h5 class="text-white h4">Collapsed content</h5>
-          <span class="text-muted">Toggleable via the navbar brand.</span>
-        </div>
-      </div>
-      <nav class="navbar navbar-dark bg-dark">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarToggleExternalContent"
-          aria-controls="navbarToggleExternalContent"
-          aria-expanded="true"
-          aria-label="Toggle navigation"
-        >
-          <span style="font-size:30px;cursor:pointer" onclick="openNav()"
-            >&#9776; open</span
-          >
-        </button>
-      </nav>
-    </div>
-
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
-      >
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()"
-        >&#9776; open</span
-      >
-      <a href="dashboard.html">Dashboard Post</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
-    </div>
-
-    <div id="main">
-      <h2>Sidenav Push Example</h2>
-      <p>
-        Click on the element below to open the side navigation menu, and push
-        this content to the right.
-      </p>
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()"
-        >&#9776; open</span
-      >
-      <a href="dashboard.html">Dashboard Post</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
-    </div> -->
-
-  <form>
+  <!-- <form>
     Email<br /><input type="text" name="email" id="email" /><br /><strong><span id="displayError"></span></strong><br />
     Password<br /><input type="password" name="passWord" id="passWord" /><br />
     <input type="submit" value="Sign In" id="signInBtn" />
     <input type="submit" value="Sign Up" id="signUpBtn" />
-  </form>
+  </form> -->
 
-  <button type="button" id="signOut">Sign Out</button>
+  <!-- <button type="button" id="signOut">Sign Out</button> -->
+
+<body>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              
+      <form style="border:1px solid #ccc" id="Forum">
+          <div class="container" id="SignInBox">
+              
+              <h1>Sign In</h1>
+              <p>Please fill in this form to create an account.</p>
+              <hr>
+
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" id="email" name="email" required>
+  
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" id="passWord" name="password" required>
+
+              <div class="clearfix">
+                  <!-- <button type="button" class="cancel">Cancel</button> -->
+                  <button type="submit" class="signup">Sign In</button>
+              </div>
+          </div>
+      </form>
+  </body>
+  <script type='text/javascript'>
+  
+      const config = {
+          apiKey: "AIzaSyB_m_T5HTRv8nJag2AiCxVKk-9ft_k0BzY",
+          authDomain: "project-2-a5345.firebaseapp.com",
+          databaseURL: "https://project-2-a5345.firebaseio.com",
+          projectId: "project-2-a5345",
+          storageBucket: "project-2-a5345.appspot.com",
+          messagingSenderId: "649772621947",
+          appId: "1:649772621947:web:36fce6153aa474885ec2de"
+      };
+  
+      firebase.initializeApp(config);
+  
+      var database = firebase.database();
+  
+      $(".submit").on("click", function (event) {
+          var newUser = {};
+          event.preventDefault();
+          if ($("#password").val().trim() === $("#confirm").val().trim()) {
+              newUser = {
+                  email: $("#email")
+                      .val()
+                      .trim(),
+                  name: $("#name")
+                      .val()
+                      .trim(),
+                  password: $("#password")
+                      .val()
+                      .trim()
+              };
+          }
+  
+          const auth = firebase.auth();
+  
+          const promise = auth.createUserWithEmailAndPassword(email, password);
+          $("#displayError").text("");
+  
+          promise.catch(e => {
+              console.log(e.message);
+              $("#displayError").text(e.message);
+          });
+  
+          $.ajax({
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              type: "POST",
+              url: "/signUp/new",
+              data: JSON.stringify(newUser)
+          });
+      });
+  
+      firebase.auth().onAuthStateChanged(user => {
+          if (user) {
+              window.location.href = "/home";
+              console.log("Signed in as: " + user.email);
+          } else {
+  
+          }
+      });
+  
+      $(".cancel").on("click", function () {
+          window.location.href = "/";
+      });
+  </script>
+  
 
   <script>
     const config = {
