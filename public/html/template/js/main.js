@@ -10,22 +10,49 @@ var config = {
 
 firebase.initializeApp(config);
 
-// var database = firebase.database();
-
 var currentURL = window.location.origin;
 
 firebase.auth().onAuthStateChanged(function(fbUser) {
   if (fbUser) {
-    console.log("Signed in as: " + fbUser.email);
+    $.ajax({
+      url: currentURL + "/api/homeUser",
+      method: "GET",
+      data: {
+        email: fbUser.email
+      }
+    }).then(function(res) {
+      $("#username").text(res.name);
+    });
   } else {
     window.location.href = "/";
   }
 });
 
 $("#signOut").on("click", function() {
-  console.log("sign out");
   firebase.auth().signOut();
 });
+
+$("#createpost").on("click", function() {
+  // var newPost = {
+  //   task: $("#taskInput").val().trim(),
+  //   id: $("data-id").val()
+  // }
+  var newPost = {
+    task: "try me",
+    subject: "math",
+    id: 1
+  };
+  $.ajax({
+    headers: {
+      "Content-Type": "application/json"
+    },
+    type: "POST",
+    url: "/post/new",
+    data: JSON.stringify(newPost)
+  });
+});
+
+// Template Code Below
 
 (function() {
   "use strict";
