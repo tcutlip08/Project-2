@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-	<!-- <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
 	<title>SLR Dashboard</title>
-	<!--<meta name="viewport" content="width=device-width, initial-scale=1"> -->
-	<!--<meta name="description" content="" /> -->
-	<!--<meta name="keywords" content="" /> -->
-	<!--<meta name="author" content="" /> -->
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
@@ -32,6 +26,8 @@
 	<link rel="stylesheet" href="css/style.css">
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- Firebase -->
+	<script src='https://www.gstatic.com/firebasejs/4.12.0/firebase.js'></script>
 
 </head>
 
@@ -74,6 +70,9 @@
 							<li><a href="#" data-nav-section="completedPosts">Your Completed Posts</a></li>
 							<li><a href="#" data-nav-section="recentPosts">Most Recent Posts</a></li>
 						</ul>
+						<br>
+						<br>
+						<button href="#" id="signOut">Sign Out</button>
 					</div>
 				</nav>
 				<!-- This section takes you to sections of the portfolio page, dont really need this just need the <li>----------->
@@ -162,7 +161,7 @@
 														from the countries Vokalia and Consonantia, there live the blind
 														texts. Separated they live in Bookmarksgrove right at the coast
 														of the Semantics, a large language ocean.</p>
-														<!-- 145 individual characters long    panel-body targets these in style.css-->
+													<!-- 145 individual characters long    panel-body targets these in style.css-->
 
 													<!-- <div class="row">
 														<div class="col-md-6">
@@ -196,7 +195,7 @@
 														from the countries Vokalia and Consonantia, there live the blind
 														texts. Separated they live in Bookmarksgrove right at the coast
 														of the Semantics, a large language ocean.</p>
-														
+
 													<!-- <ul>
 														<li>Separated they live in Bookmarksgrove right</li>
 														<li>Separated they live in Bookmarksgrove right</li>
@@ -433,7 +432,38 @@
 
 
 	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
+	<script src="js/main.js">
+		const config = {
+			apiKey: "AIzaSyB_m_T5HTRv8nJag2AiCxVKk-9ft_k0BzY",
+			authDomain: "project-2-a5345.firebaseapp.com",
+			databaseURL: "https://project-2-a5345.firebaseio.com",
+			projectId: "project-2-a5345",
+			storageBucket: "project-2-a5345.appspot.com",
+			messagingSenderId: "649772621947",
+			appId: "1:649772621947:web:36fce6153aa474885ec2de"
+		};
+
+
+
+		firebase.initializeApp(config);
+
+		var database = firebase.database();
+
+		var currentURL = window.location.origin;
+
+		firebase.auth().onAuthStateChanged(fbUser => {
+			if (fbUser) {
+
+			} else {
+				$.get(currentURL + "/");
+			}
+		});
+
+		$("#signOut").on("click", function () {
+			firebase.auth().signOut();
+		});
+
+	</script>
 
 </body>
 
