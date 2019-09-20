@@ -13,10 +13,9 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/allPosts/subject", function(req, res) {
+  app.get("/api/allPosts/:subject", function(req, res) {
     db.Post.findAll({
-      where: { Accepted: false, Subject: req.body.subject }
-      // where: { Accepted: false, Subject: "science" }
+      where: { Accepted: false, Subject: req.params.subject }
     }).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -115,14 +114,4 @@ module.exports = function(app) {
   //     res.json(dbPost);
   //   });
   // });
-  // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
-    db.Post.update(req.body, {
-      where: {
-        id: req.body.id
-      }
-    }).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
 };
