@@ -141,6 +141,7 @@ function getAllNotAccPosts() {
   // Animations
   var contentWayPoint = function() {
     var i = 0;
+    console.log(i);
     $(".animate-box").waypoint(
       function(direction) {
         if (direction === "down" && !$(this.element).hasClass("animated")) {
