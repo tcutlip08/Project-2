@@ -79,7 +79,6 @@ function createNewPost(post, postId) {
       post.subject +
       "</div>"
   );
-  // $("#postcontainer").append("════════════════════");
   $("#postcontainer").append(
     "<div style= 'word-wrap: break-word; border:3px solid #ccc'>" +
       post.task +
@@ -94,86 +93,13 @@ function createNewPost(post, postId) {
   );
   $("#postcontainer").append("<br>");
   $("#postcontainer").append("<br>");
-  // $("#postcontainer").append(
-  //   "═════════════════════════════════════════════════════════════════════════"
-  // );
-  // post.task.css({
-  //   float: "center",
-  //   color: "red"
-  // });
-  // $("#post-container").append(newPost);
-  // var newPost = $("<div>");
-  // newPost.addClass("jumbotron");
-  // var postHeader = $("<h2>");
-  // postHeader.addClass("display-4");
-  // postHeader.append(newPost);
-  // postHeader.text(post.subject);
-  // var paragraph = $("<p>");
-  // paragraph.addClass("lead");
-  // paragraph.append(postHeader);
-  // paragraph.text(post.task);
-  // var acceptButton = $("<button>");
-  // acceptButton.addClass("btn btn-primary btn-lg");
-  // acceptButton.text("ACCEPT");
-  // acceptButton.append(paragraph);
-  // newPost.data("post", post);
-  // return newPost;
-  // $("#post-container").append(newPost);
-  // $("#post-container").append("<div class='card text-center'>");
-  // $("#post-container").append("<div class='card-header'>");
-  // $("#post-container").append("</div>");
-  // $("#post-container").append("<div class='card-body'>");
-  // $("#post-container").append(
-  //   "<h5 class='card-title'>" + post.subject + "</h5>"
-  // );
-  // $("#post-container").append("<p class='card-text'>" + post.task + "</p>");
-  // $("#post-container").append("<button>" + "ACCEPT" + "</button>");
-  // $("#post-container").append("</div>");
-  // $("#post-container").append("</div>");
-  // $("#post-container").append("</div>");
-  // $("#post-container").append("</div>");
 }
-
-// var newPostCard = $("<div>");
-// newPostCard.addClass("card text-center");
-// var newPostCardHeader = $("<div>");
-// newPostCardHeader.addClass("card-header");
-// var newPostCardBody = $("<div>");
-// newPostCardBody.addClass("card-body");
-// newPostCardBody.append(acceptButton);
-// var newPostCardTitle = $("<h3>");
-// newPostCardTitle.addClass("card-title");
-// newPostCardTitle.text("Subject: " + post.subject);
-// var newPostCardText = $("<p>");
-// newPostCardText.addClass("card-text");
-// newPostCardText.text(post.task);
-// newPostCardText.append(post.task);
-// var acceptButton = $("<button>");
-// acceptButton.text("ACCEPT");
-// acceptButton.addClass("btn btn-primary");
-// var newPostCardFooter = $("<div>");
-// newPostCardFooter.addClass("card-footer");
-// return newPostCard;
-// }
-// $(document).ready(function() {
-//   $("#createPost").click(function() {
-//     var createForm = $("#createPost");
-//     var subject = $("dropdown").val();
-//     var message = $("message").val();
-//     $("#testing").append("<p>" + message + "</p>");
-//     $("#testing").append("<p>" + subject + "</p>");
-//   });
-// });
-
 function getAllNotAccPosts() {
   $.ajax({
     url: currentURL + "/api/allPosts/notAcc",
     method: "GET"
   }).then(function(res) {
-    // console.log("Posts not accepted");
     console.log(res);
-
-    // appendPostCards(res);
   });
 }
 
@@ -379,30 +305,6 @@ function getAllNotAccPosts() {
     );
   };
 
-  // var sliderMain = function() {
-  //   $("#colorlib-hero .flexslider").flexslider({
-  //     animation: "fade",
-  //     slideshowSpeed: 5000,
-  //     directionNav: true,
-  //     start: function() {
-  //       setTimeout(function() {
-  //         $(".slider-text").removeClass("animated fadeInUp");
-  //         $(".flex-active-slide")
-  //           .find(".slider-text")
-  //           .addClass("animated fadeInUp");
-  //       }, 500);
-  //     },
-  //     before: function() {
-  //       setTimeout(function() {
-  //         $(".slider-text").removeClass("animated fadeInUp");
-  //         $(".flex-active-slide")
-  //           .find(".slider-text")
-  //           .addClass("animated fadeInUp");
-  //       }, 500);
-  //     }
-  //   });
-  // };
-
   var stickyFunction = function() {
     var h = $(".image-content").outerHeight();
 
@@ -424,35 +326,11 @@ function getAllNotAccPosts() {
         $(".sticky-parent").removeClass("stick-detach");
         $("#sticky_item").trigger("sticky_kit:detach");
         $("#sticky_item").trigger("sticky_kit:unstick");
-
-        // $("#sticky_item").stick_in_parent();
       }
     });
 
     $(".sticky-parent").css("height", h);
-
-    // $("#sticky_item").stick_in_parent();
   };
-
-  // var owlCrouselFeatureSlide = function() {
-  //   $(".owl-carousel").owlCarousel({
-  //     animateOut: "fadeOut",
-  //     animateIn: "fadeIn",
-  //     autoplay: true,
-  //     loop: true,
-  //     margin: 0,
-  //     nav: true,
-  //     dots: false,
-  //     autoHeight: true,
-  //     items: 1,
-  //     navText: [
-  //       "<i class='icon-arrow-left3 owl-direction'></i>",
-  //       "<i class='icon-arrow-right3 owl-direction'></i>"
-  //     ]
-  //   });
-  // };
-
-  // Document on load.
   $(function() {
     fullHeight();
     counter();
