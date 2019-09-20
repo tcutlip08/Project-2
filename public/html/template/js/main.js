@@ -110,19 +110,12 @@ function createNewPost(post, postId) {
   $("#postcontainer").append("<br>");
   $("#postcontainer").append("<br>");
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> c3df348fd260ece3d1712aa51afe8477fc372ccc
 function getAllNotAccPosts() {
   $.ajax({
     url: currentURL + "/api/allPosts/notAcc",
     method: "GET"
   }).then(function(res) {
-<<<<<<< HEAD
-=======
     console.log("Posts not accepted");
->>>>>>> c3df348fd260ece3d1712aa51afe8477fc372ccc
     console.log(res);
   });
 }
@@ -319,10 +312,6 @@ function getUserHistoryOfPosts(data) {
       }
     );
   };
-<<<<<<< HEAD
-
-=======
->>>>>>> c3df348fd260ece3d1712aa51afe8477fc372ccc
   var stickyFunction = function() {
     var h = $(".image-content").outerHeight();
     if ($(window).width() <= 992) {
