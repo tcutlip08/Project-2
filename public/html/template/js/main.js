@@ -40,7 +40,7 @@ $("#signOut").on("click", function() {
 
 $("#createPost").on("click", function() {
   event.preventDefault();
-  console.log($(".subject").val());
+  // console.log($(".subject").val());
   var newPost = {
     subject: $(".subject").val(),
     task: $("#message")
@@ -48,11 +48,6 @@ $("#createPost").on("click", function() {
       .trim(),
     id: user.id
   };
-  // var newPost = {
-  //   subject: "math",
-  //   task: "try me",
-  //   id: 1
-  // };
   $.ajax({
     headers: {
       "Content-Type": "application/json"
@@ -61,14 +56,47 @@ $("#createPost").on("click", function() {
     url: "/post/new",
     data: JSON.stringify(newPost)
   });
+  createNewPost(newPost);
 });
+function createNewPost(post) {
+  $("#post-container").append("<h1>" + post.subject + "</h1>");
+  // var newPostCard = $("<div>");
+  // newPostCard.addClass("card text-center");
+  // var newPostCardHeader = $("<div>");
+  // newPostCardHeader.addClass("card-header");
+  // var newPostCardBody = $("<div>");
+  // newPostCardBody.addClass("card-body");
+  // newPostCardBody.append(acceptButton);
+  // var newPostCardTitle = $("<h3>");
+  // newPostCardTitle.addClass("card-title");
+  // newPostCardTitle.text("Subject: " + post.subject);
+  // var newPostCardText = $("<p>");
+  // newPostCardText.addClass("card-text");
+  // newPostCardText.text(post.task);
+  // newPostCardText.append(post.task);
+  // var acceptButton = $("<button>");
+  // acceptButton.text("ACCEPT");
+  // acceptButton.addClass("btn btn-primary");
+  // var newPostCardFooter = $("<div>");
+  // newPostCardFooter.addClass("card-footer");
+  // return newPostCard;
+}
+// $(document).ready(function() {
+//   $("#createPost").click(function() {
+//     var createForm = $("#createPost");
+//     var subject = $("dropdown").val();
+//     var message = $("message").val();
+//     $("#testing").append("<p>" + message + "</p>");
+//     $("#testing").append("<p>" + subject + "</p>");
+//   });
+// });
 
 function getAllNotAccPosts() {
   $.ajax({
     url: currentURL + "/api/allPosts/notAcc",
     method: "GET"
   }).then(function(res) {
-    console.log("Posts not accepted");
+    // console.log("Posts not accepted");
     console.log(res);
 
     // appendPostCards(res);
