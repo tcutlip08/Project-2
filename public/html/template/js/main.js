@@ -26,6 +26,8 @@ firebase.auth().onAuthStateChanged(function(fbUser) {
       console.log("User Logged In");
       console.log(res);
       user = res;
+      getUserHistoryOfPosts(res);
+      // $("#userImage").html("<img src='Logo.png' alt='User Image'/>");
       $("#username").text(res.name);
     });
     getAllNotAccPosts();
@@ -33,6 +35,21 @@ firebase.auth().onAuthStateChanged(function(fbUser) {
     window.location.href = "/";
   }
 });
+
+$(".filter").on("click", function() {
+  var subject = $(this).attr("id");
+  filterBy(subject);
+});
+
+function filterBy(sub) {
+  $.ajax({
+    url: currentURL + "/api/allPosts/" + sub,
+    method: "GET"
+  }).then(function(res) {
+    console.log("Filters Posts by: " + sub);
+    console.log(res);
+  });
+}
 
 $("#signOut").on("click", function() {
   firebase.auth().signOut();
@@ -62,7 +79,6 @@ $("#createPost").on("click", function() {
 });
 
 $(document).on("click", ".accept", function() {
-  console.log($(this).attr("data-postid"));
   var userId = $(this).attr("data-userid");
   var postId = $(this).attr("data-postid");
   $.ajax({
@@ -94,11 +110,29 @@ function createNewPost(post, postId) {
   $("#postcontainer").append("<br>");
   $("#postcontainer").append("<br>");
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> c3df348fd260ece3d1712aa51afe8477fc372ccc
 function getAllNotAccPosts() {
   $.ajax({
     url: currentURL + "/api/allPosts/notAcc",
     method: "GET"
   }).then(function(res) {
+<<<<<<< HEAD
+=======
+    console.log("Posts not accepted");
+>>>>>>> c3df348fd260ece3d1712aa51afe8477fc372ccc
+    console.log(res);
+  });
+}
+
+function getUserHistoryOfPosts(data) {
+  $.ajax({
+    url: currentURL + "/api/history/" + data.id,
+    method: "GET"
+  }).then(function(res) {
+    console.log("Users History of Posts");
     console.log(res);
   });
 }
@@ -107,7 +141,6 @@ function getAllNotAccPosts() {
 
 (function() {
   "use strict";
-
   var isMobile = {
     Android: function() {
       return navigator.userAgent.match(/Android/i);
@@ -134,7 +167,6 @@ function getAllNotAccPosts() {
       );
     }
   };
-
   var fullHeight = function() {
     if (!isMobile.any()) {
       $(".js-fullheight").css("height", $(window).height());
@@ -143,7 +175,6 @@ function getAllNotAccPosts() {
       });
     }
   };
-
   var counter = function() {
     $(".js-counter").countTo({
       formatter: function(value, options) {
@@ -151,7 +182,6 @@ function getAllNotAccPosts() {
       }
     });
   };
-
   var counterWayPoint = function() {
     if ($("#colorlib-counter").length > 0) {
       $("#colorlib-counter").waypoint(
@@ -165,7 +195,6 @@ function getAllNotAccPosts() {
       );
     }
   };
-
   // Animations
   var contentWayPoint = function() {
     var i = 0;
@@ -174,7 +203,6 @@ function getAllNotAccPosts() {
       function(direction) {
         if (direction === "down" && !$(this.element).hasClass("animated")) {
           i++;
-
           $(this.element).addClass("item-animate");
           setTimeout(function() {
             $("body .animate-box.item-animate").each(function(k) {
@@ -191,7 +219,6 @@ function getAllNotAccPosts() {
                   } else {
                     el.addClass("fadeInUp animated");
                   }
-
                   el.removeClass("item-animate");
                 },
                 k * 200,
@@ -204,12 +231,10 @@ function getAllNotAccPosts() {
       { offset: "85%" }
     );
   };
-
   var burgerMenu = function() {
     $(".js-colorlib-nav-toggle").on("click", function(event) {
       event.preventDefault();
       var $this = $(this);
-
       if ($("body").hasClass("offcanvas")) {
         $this.removeClass("active");
         $("body").removeClass("offcanvas");
@@ -219,7 +244,6 @@ function getAllNotAccPosts() {
       }
     });
   };
-
   // Click outside of offcanvass
   var mobileMenuOutsideClick = function() {
     $(document).click(function(e) {
@@ -231,7 +255,6 @@ function getAllNotAccPosts() {
         }
       }
     });
-
     $(window).scroll(function() {
       if ($("body").hasClass("offcanvas")) {
         $("body").removeClass("offcanvas");
@@ -239,12 +262,10 @@ function getAllNotAccPosts() {
       }
     });
   };
-
   var clickMenu = function() {
     $("#navbar a:not([class='external'])").click(function(event) {
       var section = $(this).data("nav-section"),
         navbar = $("#navbar");
-
       if ($("[data-section='" + section + "']").length) {
         $("html, body").animate(
           {
@@ -253,18 +274,15 @@ function getAllNotAccPosts() {
           500
         );
       }
-
       if (navbar.is(":visible")) {
         navbar.removeClass("in");
         navbar.attr("aria-expanded", "false");
         $(".js-colorlib-nav-toggle").removeClass("active");
       }
-
       event.preventDefault();
       return false;
     });
   };
-
   // Reflect scrolling in navigation
   var navActive = function(section) {
     var $el = $("#navbar > ul");
@@ -276,10 +294,8 @@ function getAllNotAccPosts() {
         .addClass("active");
     });
   };
-
   var navigationSection = function() {
     var $section = $("section[data-section]");
-
     $section.waypoint(
       function(direction) {
         if (direction === "down") {
@@ -290,7 +306,6 @@ function getAllNotAccPosts() {
         offset: "150px"
       }
     );
-
     $section.waypoint(
       function(direction) {
         if (direction === "up") {
@@ -304,10 +319,12 @@ function getAllNotAccPosts() {
       }
     );
   };
+<<<<<<< HEAD
 
+=======
+>>>>>>> c3df348fd260ece3d1712aa51afe8477fc372ccc
   var stickyFunction = function() {
     var h = $(".image-content").outerHeight();
-
     if ($(window).width() <= 992) {
       $("#sticky_item").trigger("sticky_kit:detach");
     } else {
@@ -315,11 +332,9 @@ function getAllNotAccPosts() {
       $("#sticky_item").trigger("sticky_kit:detach");
       $("#sticky_item").trigger("sticky_kit:unstick");
     }
-
     $(window).resize(function() {
       var h = $(".image-content").outerHeight();
       $(".sticky-parent").css("height", h);
-
       if ($(window).width() <= 992) {
         $("#sticky_item").trigger("sticky_kit:detach");
       } else {
@@ -328,7 +343,6 @@ function getAllNotAccPosts() {
         $("#sticky_item").trigger("sticky_kit:unstick");
       }
     });
-
     $(".sticky-parent").css("height", h);
   };
   $(function() {
@@ -337,12 +351,10 @@ function getAllNotAccPosts() {
     counterWayPoint();
     contentWayPoint();
     burgerMenu();
-
     clickMenu();
     // navActive();
     navigationSection();
     // windowScroll();
-
     mobileMenuOutsideClick();
     // sliderMain();
     stickyFunction();
