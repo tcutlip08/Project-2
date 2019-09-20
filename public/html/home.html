@@ -98,7 +98,7 @@
 										alt="HTML5 Bootstrap Template by colorlib.com">
 									<div class="desc">
 										<br>
-										<h3>Algebra, Calculus, and Linear Alebra</h3>
+										<h3>Algebra, Calculus, and Linear Algebra</h3>
 										<p>I made solid A's in the class. I have also led study groups
 											for my class.
 										</p>
@@ -432,16 +432,16 @@
 							</div>
 						</div> -->
 						<div class="row">
+							<div class="col-md-12" id="post-container">
+							</div>
+						</div>
+						<div class="row">
 							<div class="col-md-12 animate-box">
 								<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i
 											class="icon-reload"></i></a></p>
 							</div>
 						</div>
 
-						<div class="row">
-							<div class="col-md-12 post-container">
-							</div>
-						</div>
 
 						<!-- <div class="card text-center">
 							<div class="card-header">
@@ -481,123 +481,6 @@
 
 	<!-- MAIN JS -->
 	<script src="../html/template/js/main.js"></script>
-	<script type='text/javascript'>
-
-		// var createForm = $("#createPost");
-		$("#createPost").on("click", function () {
-			var subject = $(".subject");
-			var message = $("#message");
-			var newPost;
-			function createNewPost(newPost) {
-				var newPostCard = $("<div>");
-				newPostCard.addClass("card text-center");
-				var newPostCardHeader = $("<div>");
-				newPostCardHeader.addClass("card-header");
-				var newPostCardBody = $("<div>");
-				newPostCardBody.addClass("card-body");
-				var newPostCardTitle = $("<h3>");
-				newPostCardTitle.addClass("card-title");
-				newPostCardTitle.text("Subject: " + newPost.subject);
-				var newPostCardText = $("<p>");
-				newPostCardText.addClass("card-text");
-				newPostCardText.text(newPost.task);
-				var acceptButton = $("<button>");
-				acceptButton.text("ACCEPT");
-				acceptButton.addClass("btn btn-primary");
-				var newPostCardFooter = $("<div>");
-				newPostCardFooter.addClass("card-footer text-muted");
-			};
-		});
-		// var updating = false;
-		// var postContainer = $(".post-container");
-		// function handleFormSubmit(event) {
-		// 	event.preventDefault();
-		// 	// Wont submit the post if we are missing a body, title, or author
-		// 	if (!subject.val().trim() || !message.val().trim()) {
-		// 		return;
-		// 	}
-		// 	// Constructing a newPost object to hand to the database
-		// 	var newPost = {
-		// 		title: subject
-		// 			.val()
-		// 			.trim(),
-		// 		body: message
-		// 			.val()
-		// 			.trim()
-		// 	};
-
-		// 	// If we're updating a post run updatePost to update a post
-		// 	// Otherwise run submitPost to create a whole new post
-		// 	if (updating) {
-		// 		newPost.id = postId;
-		// 		updatePost(newPost);
-		// 	}
-		// 	else {
-		// 		submitPost(newPost);
-		// 	}
-		// }
-
-		// function submitPost(post) {
-		// 	$.post("/post/new", post, function () {
-		// 		// window.location.href = "/home";
-		// 	});
-		// }
-
-		// function initializeRows() {
-		// 	postContainer.empty();
-		// 	var postsToAdd = [];
-		// 	for (var i = 0; i < posts.length; i++) {
-		// 		postsToAdd.push(createNewRow(posts[i]));
-		// 	}
-		// 	postContainer.append(postsToAdd);
-		// };
-
-		// function createNewRow(post) {
-		// 	var newPostCard = $("<div>");
-		// 	newPostCard.addClass("card");
-		// 	var newPostCardHeading = $("<div>");
-		// 	newPostCardHeading.addClass("card-header");
-		// 	var newPostTitle = $("<h2>");
-		// 	var newPostAuthor = $("<h5>");
-		// 	// newPostAuthor.text("Written by: " + post.Author.name);
-		// 	var newPostCardBody = $("<div>");
-		// 	newPostCardBody.addClass("card-body");
-		// 	var newPostBody = $("<p>");
-		// 	newPostTitle.text(post.title + " ");
-		// 	newPostBody.text(post.body);
-		// 	newPostCardHeading.append(newPostTitle);
-		// 	newPostCardHeading.append(newPostAuthor);
-		// 	newPostCardBody.append(newPostBody);
-		// 	newPostCard.append(newPostCardHeading);
-		// 	newPostCard.append(newPostCardBody);
-		// 	newPostCard.data("post", post);
-		// 	return newPostCard;
-		// };
-
-
-		$("#createPost").on("click", function () {
-			console.log("click")
-			var newPost = {
-				subject: $("#subject").val(),
-				task: $("#message").val().trim(),
-				id: $("data-id").val()
-			}
-			console.log(newPost);
-			//   var newPost = {
-			//     task: "try me",
-			//     id: 1
-			//   }
-			$.ajax({
-				headers: {
-					"Content-Type": "application/json"
-				},
-				type: "POST",
-				url: "/post/new",
-				data: JSON.stringify(newPost)
-			});
-		});
-
-	</script>
 
 </body>
 
