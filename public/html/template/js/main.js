@@ -26,6 +26,7 @@ firebase.auth().onAuthStateChanged(function(fbUser) {
       console.log("User Logged In");
       console.log(res);
       user = res;
+      getUserHistoryOfPosts(res);
       $("#username").text(res.name);
     });
     getAllNotAccPosts();
@@ -58,6 +59,7 @@ $("#createPost").on("click", function() {
   });
   createNewPost(newPost);
 });
+
 function createNewPost(post) {
   $("#post-container").append("<h1>" + post.subject + "</h1>");
   // var newPostCard = $("<div>");
@@ -100,6 +102,16 @@ function getAllNotAccPosts() {
     console.log(res);
 
     // appendPostCards(res);
+  });
+}
+
+function getUserHistoryOfPosts(data) {
+  $.ajax({
+    url: currentURL + "/api/history/" + data.id,
+    method: "GET"
+  }).then(function(res) {
+    console.log("Users History of Posts");
+    console.log(res);
   });
 }
 
