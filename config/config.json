@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "Fireb@ll1!",
-=======
-    "password": "no",
->>>>>>> 75630f4064bc5c7f3eeb5c26c690c4562e785c9e
     "database": "SLR_DB",
     "host": "localhost",
     "dialect": "mysql"

@@ -150,10 +150,28 @@
 									<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
 										data-animate-effect="fadeInRight">
 										<form action="" id="createForm">
-											<div class="form-group">
-												<input type="text" class="form-control" id="subject"
-													placeholder="Subject">
+											<!-- <div class="form-group">
+												<textarea name="" id="subject" cols="30" rows="1" class="form-control"
+													placeholder="input subject: 'math', 'history', 'english', 'science'"></textarea>
+											</div> -->
+											<div class="btn-group">
+												<button type="button" class="btn btn-secondary dropdown-toggle"
+													data-toggle="dropdown" data-display="static" aria-haspopup="true"
+													aria-expanded="false">
+													Please Pick One Of The Following Subjects:
+												</button>
+												<div class="dropdown-menu dropdown-menu-lg-right">
+													<button class="dropdown-item" value="science"
+														type="button">Science</button>
+													<button class="dropdown-item" value="history"
+														type="button">History</button>
+													<button class="dropdown-item" value="english"
+														type="button">English</button>
+													<button class="dropdown-item" value="math"
+														type="button">Math</button>
+												</div>
 											</div>
+											<br>
 											<div class="form-group">
 												<textarea name="" id="message" cols="30" rows="7" class="form-control"
 													placeholder="Add some information about the help you need"></textarea>
@@ -361,7 +379,7 @@
 							</div>
 						</div>
 
-						<div class="row">
+						<!-- <div class="row">
 							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
 								<div class="project" style="background-image: url(../html/template/images/1.jpeg);">
 									<div class="desc">
@@ -435,7 +453,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="row">
 							<div class="col-md-12 animate-box">
 								<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i
@@ -473,10 +491,16 @@
 	<script src="../html/template/js/main.js"></script>
 	<script type='text/javascript'>
 
-		// var createForm = $("#postIt");
-		// $(createForm).on("submit", handleFormSubmit);
-		// var subject = $("#subject");
-		// var message = $("#message");
+		// var createForm = $("#createPost");
+		$("#createPost").on("submit", handleFormSubmit);
+		var subject = $(".subject");
+		var message = $("#message");
+		function createNewPost(newPost) {
+			var newPostCard = $("<div>");
+			newPostCard.addClass("card");
+			var newPostCardHeading = $("<div>");
+			newPostCardHeading.addClass("card-header");
+		};
 		// var updating = false;
 		// var postContainer = $(".post-container");
 		// function handleFormSubmit(event) {
@@ -528,7 +552,7 @@
 		// 	newPostCardHeading.addClass("card-header");
 		// 	var newPostTitle = $("<h2>");
 		// 	var newPostAuthor = $("<h5>");
-		// 	newPostAuthor.text("Written by: " + post.Author.name);
+		// 	// newPostAuthor.text("Written by: " + post.Author.name);
 		// 	var newPostCardBody = $("<div>");
 		// 	newPostCardBody.addClass("card-body");
 		// 	var newPostBody = $("<p>");
@@ -544,7 +568,8 @@
 		// };
 
 
-		$("#submit").on("click", function () {
+		$("#createPost").on("click", function () {
+			console.log("click")
 			var newPost = {
 				subject: $("#subject").val().trim(),
 				task: $("#message").val().trim(),
