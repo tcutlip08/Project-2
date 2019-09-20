@@ -83,10 +83,63 @@ $("#createPost").on("click", function() {
     type: "POST",
     url: "/post/new",
     data: JSON.stringify(newPost)
+  }).then(function(postId) {
+    console.log(postId);
+    createNewPost(newPost, postId.id);
   });
-  createNewPost(newPost);
 });
 
+$(document).on("click", ".accept", function() {
+  console.log($(this).attr("data-postid"));
+  var userId = $(this).attr("data-userid");
+  var postId = $(this).attr("data-postid");
+  $.ajax({
+    url: currentURL + "/api/accept/" + postId + "/" + userId,
+    method: "GET"
+  }).then(function(res) {
+    console.log(res);
+  });
+});
+
+function createNewPost(post, postId) {
+  $("#postcontainer").append(
+    "<div style= 'word-wrap: break-word; border:1px solid #ccc'>" +
+      post.subject +
+      "</div>"
+  );
+  // $("#postcontainer").append("════════════════════");
+  $("#postcontainer").append(
+    "<div style= 'word-wrap: break-word; border:3px solid #ccc'>" +
+      post.task +
+      "</div>"
+  );
+  $("#postcontainer").append(
+    "<button class='accept' data-postId=" +
+      postId +
+      " data-userId=" +
+      user.id +
+      ">Accept</button>"
+  );
+  $("#postcontainer").append("<br>");
+  $("#postcontainer").append("<br>");
+  // $("#postcontainer").append(
+  //   "═════════════════════════════════════════════════════════════════════════"
+  // );
+  // post.task.css({
+  //   float: "center",
+  //   color: "red"
+  // });
+  // $("#post-container").append(newPost);
+  // var newPost = $("<div>");
+  // newPost.addClass("jumbotron");
+  // var postHeader = $("<h2>");
+  // postHeader.addClass("display-4");
+  // postHeader.append(newPost);
+  // postHeader.text(post.subject);
+  // var paragraph = $("<p>");
+  // paragraph.addClass("lead");
+  // paragraph.append(postHeader);
+  // paragraph.text(post.task);
 function createNewPost(post) {
   $("#testing").append("<h1>" + post.subject + "</h1>");
   // var newPostCard = $("<div>");
@@ -104,12 +157,48 @@ function createNewPost(post) {
   // newPostCardText.text(post.task);
   // newPostCardText.append(post.task);
   // var acceptButton = $("<button>");
+  // acceptButton.addClass("btn btn-primary btn-lg");
   // acceptButton.text("ACCEPT");
-  // acceptButton.addClass("btn btn-primary");
-  // var newPostCardFooter = $("<div>");
-  // newPostCardFooter.addClass("card-footer");
-  // return newPostCard;
+  // acceptButton.append(paragraph);
+  // newPost.data("post", post);
+  // return newPost;
+  // $("#post-container").append(newPost);
+  // $("#post-container").append("<div class='card text-center'>");
+  // $("#post-container").append("<div class='card-header'>");
+  // $("#post-container").append("</div>");
+  // $("#post-container").append("<div class='card-body'>");
+  // $("#post-container").append(
+  //   "<h5 class='card-title'>" + post.subject + "</h5>"
+  // );
+  // $("#post-container").append("<p class='card-text'>" + post.task + "</p>");
+  // $("#post-container").append("<button>" + "ACCEPT" + "</button>");
+  // $("#post-container").append("</div>");
+  // $("#post-container").append("</div>");
+  // $("#post-container").append("</div>");
+  // $("#post-container").append("</div>");
 }
+
+// var newPostCard = $("<div>");
+// newPostCard.addClass("card text-center");
+// var newPostCardHeader = $("<div>");
+// newPostCardHeader.addClass("card-header");
+// var newPostCardBody = $("<div>");
+// newPostCardBody.addClass("card-body");
+// newPostCardBody.append(acceptButton);
+// var newPostCardTitle = $("<h3>");
+// newPostCardTitle.addClass("card-title");
+// newPostCardTitle.text("Subject: " + post.subject);
+// var newPostCardText = $("<p>");
+// newPostCardText.addClass("card-text");
+// newPostCardText.text(post.task);
+// newPostCardText.append(post.task);
+// var acceptButton = $("<button>");
+// acceptButton.text("ACCEPT");
+// acceptButton.addClass("btn btn-primary");
+// var newPostCardFooter = $("<div>");
+// newPostCardFooter.addClass("card-footer");
+// return newPostCard;
+// }
 // $(document).ready(function() {
 //   $("#createPost").click(function() {
 //     var createForm = $("#createPost");
