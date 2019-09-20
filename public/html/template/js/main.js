@@ -14,6 +14,22 @@ firebase.initializeApp(config);
 
 var currentURL = window.location.origin;
 
+// firebase.auth().onAuthStateChanged(function(fbUser) {
+//   if (fbUser) {
+//     $.ajax({
+//       url: currentURL + "/api/homeUser",
+//       method: "GET",
+//       data: {
+//         email: fbUser.email
+//       }
+//     }).then(function(res) {
+//       $("#username").text(res.name);
+//     });
+//   } else {
+//     window.location.href = "/";
+//   }
+// });
+
 firebase.auth().onAuthStateChanged(function(fbUser) {
   if (fbUser) {
     $.ajax({

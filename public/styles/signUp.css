@@ -74,6 +74,11 @@ button:hover {
   }
 }
 
+@media (min-width: 768px) {
+.container {
+    max-width: 100%;
+}
+}
 body {
     /* background-color: rgb(150, 225, 217); */
     background-color: rgb(110, 171, 176);
@@ -107,4 +112,14 @@ hr {
 
 #Forum {
   background-color: rgb(110, 171, 176);
+}
+
+#SignInBox {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  align: center;
 }
