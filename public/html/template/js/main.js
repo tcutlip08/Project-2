@@ -27,6 +27,7 @@ firebase.auth().onAuthStateChanged(function(fbUser) {
       console.log(res);
       user = res;
       getUserHistoryOfPosts(res);
+      // $("#userImage").html("<img src='Logo.png' alt='User Image'/>");
       $("#username").text(res.name);
     });
     getAllNotAccPosts();
@@ -34,6 +35,21 @@ firebase.auth().onAuthStateChanged(function(fbUser) {
     window.location.href = "/";
   }
 });
+
+$(".filter").on("click", function() {
+  var subject = $(this).attr("id");
+  filterBy(subject);
+});
+
+function filterBy(sub) {
+  $.ajax({
+    url: currentURL + "/api/allPosts/" + sub,
+    method: "GET"
+  }).then(function(res) {
+    console.log("Filters Posts by: " + sub);
+    console.log(res);
+  });
+}
 
 $("#signOut").on("click", function() {
   firebase.auth().signOut();
@@ -61,7 +77,7 @@ $("#createPost").on("click", function() {
 });
 
 function createNewPost(post) {
-  $("#post-container").append("<h1>" + post.subject + "</h1>");
+  $("#testing").append("<h1>" + post.subject + "</h1>");
   // var newPostCard = $("<div>");
   // newPostCard.addClass("card text-center");
   // var newPostCardHeader = $("<div>");
@@ -98,7 +114,7 @@ function getAllNotAccPosts() {
     url: currentURL + "/api/allPosts/notAcc",
     method: "GET"
   }).then(function(res) {
-    // console.log("Posts not accepted");
+    console.log("Posts not accepted");
     console.log(res);
 
     // appendPostCards(res);
