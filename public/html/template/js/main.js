@@ -26,6 +26,8 @@ firebase.auth().onAuthStateChanged(function(fbUser) {
       console.log("User Logged In");
       console.log(res);
       user = res;
+      getUserHistoryOfPosts(res);
+      // $("#userImage").html("<img src='Logo.png' alt='User Image'/>");
       $("#username").text(res.name);
     });
     getAllNotAccPosts();
@@ -33,6 +35,21 @@ firebase.auth().onAuthStateChanged(function(fbUser) {
     window.location.href = "/";
   }
 });
+
+$(".filter").on("click", function() {
+  var subject = $(this).attr("id");
+  filterBy(subject);
+});
+
+function filterBy(sub) {
+  $.ajax({
+    url: currentURL + "/api/allPosts/" + sub,
+    method: "GET"
+  }).then(function(res) {
+    console.log("Filters Posts by: " + sub);
+    console.log(res);
+  });
+}
 
 $("#signOut").on("click", function() {
   firebase.auth().signOut();
@@ -112,6 +129,22 @@ function createNewPost(post, postId) {
   // paragraph.addClass("lead");
   // paragraph.append(postHeader);
   // paragraph.text(post.task);
+function createNewPost(post) {
+  $("#testing").append("<h1>" + post.subject + "</h1>");
+  // var newPostCard = $("<div>");
+  // newPostCard.addClass("card text-center");
+  // var newPostCardHeader = $("<div>");
+  // newPostCardHeader.addClass("card-header");
+  // var newPostCardBody = $("<div>");
+  // newPostCardBody.addClass("card-body");
+  // newPostCardBody.append(acceptButton);
+  // var newPostCardTitle = $("<h3>");
+  // newPostCardTitle.addClass("card-title");
+  // newPostCardTitle.text("Subject: " + post.subject);
+  // var newPostCardText = $("<p>");
+  // newPostCardText.addClass("card-text");
+  // newPostCardText.text(post.task);
+  // newPostCardText.append(post.task);
   // var acceptButton = $("<button>");
   // acceptButton.addClass("btn btn-primary btn-lg");
   // acceptButton.text("ACCEPT");
@@ -170,10 +203,20 @@ function getAllNotAccPosts() {
     url: currentURL + "/api/allPosts/notAcc",
     method: "GET"
   }).then(function(res) {
-    // console.log("Posts not accepted");
+    console.log("Posts not accepted");
     console.log(res);
 
     // appendPostCards(res);
+  });
+}
+
+function getUserHistoryOfPosts(data) {
+  $.ajax({
+    url: currentURL + "/api/history/" + data.id,
+    method: "GET"
+  }).then(function(res) {
+    console.log("Users History of Posts");
+    console.log(res);
   });
 }
 
