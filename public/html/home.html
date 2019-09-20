@@ -27,13 +27,14 @@
 			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar"
 				aria-expanded="false" aria-controls="navbar"><i></i></a>
 			<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+
 				<div class="text-center">
 					<h1 id="colorlib-logo"><a href="index.html">
 							Student Life Raft
 							<!-- (Display User Name Here in side bar) -->
 						</a></h1>
 					<!--Below is the user image for the side nav bar  class=author-img shows up here and style.css-->
-					<div class="author-img" style="background-image: IMG_2382JPG"></div>
+					<img src="Logo.png" class="author-img" id="userImage" alt="User Image">
 					<!--Below is the link to the section, in this case the top of the page
                     colorlib-logo shows up here and style.css-->
 					<h1 id="colorlib-logo"><a href="#">
@@ -49,11 +50,11 @@
 							<!-- <li class="active"><a href="#" data-nav-section="home">Home</a></li> -->
 							<!-- <li><a href="#" data-nav-section="about">About</a></li> -->
 							<!-- <li><a href="#" data-nav-section="experience">Experience</a></li> -->
-							<li><a href="#" data-nav-section="aboutMe">About Me</a></li>
+							<!-- <li><a href="#" data-nav-section="aboutMe">About Me</a></li> -->
+							<li><a href="#" data-nav-section="recentPosts">Recent Posts</a></li>
+							<li><a href="#" data-nav-section="incompletePosts">Posts Inprogress</a></li>
+							<li><a href="#" data-nav-section="completedPosts">Completed Posts</a></li>
 							<li><a href="#" data-nav-section="createPost">Create A Post</a></li>
-							<li><a href="#" data-nav-section="history">Post History</a></li>
-							<li><a href="#" data-nav-section="completedPosts">Your Completed Posts</a></li>
-							<li><a href="#" data-nav-section="recentPosts">Most Recent Posts</a></li>
 							<br>
 							<br>
 							<br>
@@ -61,62 +62,51 @@
 						</ul>
 					</div>
 				</nav>
-				<!-- This section takes you to sections of the portfolio page, dont really need this just need the <li>----------->
 			</aside>
 			<br>
-
-			<!-- <div class="colorlib-footer">
-				<p><small>&copy;  -->
-			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-			<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
-			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-			<!-- </span> <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash.com</a></span></small></p>-->
-
-
-			<!-- Body wrapper for everything except the navbar-->
 			<div id="colorlib-main">
-				<!-- Body wrapper for everything except the navbar-->
-
-				<section class="colorlib-blog" data-section="aboutMe">
+				<section class="colorlib-work" data-section="recentPosts">
 					<div class="colorlib-narrow-content">
 						<div class="row">
 							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
 								data-animate-effect="fadeInLeft">
-								<h2 class="colorlib-heading">Areas of Expertise</h2>
+								<h2 class="colorlib-heading animate-box">Filter Posts by Subject</h2>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="blog-entry">
-									<img src="../html/template/images/blog-1.jpg" class="img-responsive"
-										alt="HTML5 Bootstrap Template by colorlib.com">
+							<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="project" style="background-image: url(../html/template/images/math.jpeg);">
 									<div class="desc">
-										<br>
-										<h3 id="subject">General Chemistry and Organic Chemisty</h3>
-										<p>I have recieved all A+ in these classes. I also have Teaching Assistant
-											experience for Organic Chemistry.
-										</p>
+										<div class="con filter" id="math">
+											<h3><a href="work.html">Timothy Cutlip</a></h3>
+											<span>Hey there I am looking for a Physics tutor.
+												I need help in thermodymanics for an upcoming test I have.
+												I have homeworks that I could use assistance on.
+											</span>
+										</div>
+
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="blog-entry">
-									<img src="../html/template/images/blog-2.jpg" class="img-responsive"
-										alt="HTML5 Bootstrap Template by colorlib.com">
+							<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="project"
+									style="background-image: url(../html/template/images/history.jpeg);">
 									<div class="desc">
-										<br>
-										<h3>Algebra, Calculus, and Linear Alebra</h3>
-										<p>I made solid A's in the class. I have also led study groups
-											for my class.
-										</p>
+										<div class="con filter" id="history">
+											<h3><a href="work.html">Jesse McKinney</a></h3>
+											<span>Hello! I am calulus student and I could use some help with
+												Derivatives. I have a couple of quizes that I would like to
+												go over.
+											</span>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="blog-entry">
-									<img src="../html/template/images/blog-3.jpg" class="img-responsive"
-										alt="HTML5 Bootstrap Template by colorlib.com">
+							<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInTop">
+								<div class="project"
+									style="background-image: url(../html/template/images/science.jpeg);">
 									<div class="desc">
+
 										<br>
 										<h3>Physics</h3>
 										<p>Overall I have made B+ in both of the introductory physics. On tests I have
@@ -166,6 +156,25 @@
 													id="createPost" value="Create Post">
 											</div>
 										</form>
+
+										<div class="con filter" id="science">
+											<h3><a href="work.html">Saeed Altaf</a></h3>
+											<span>Hi, I am taking World History! I have a paper that is due soon and
+												I would like some help with editting my paper.
+											</span>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInBottom">
+								<div class="project"
+									style="background-image: url(../html/template/images/english.jpeg);">
+									<div class="desc">
+										<div class="con filter" id="english">
+											<h3><a href="work.html">Post 04</a></h3>
+											<span>Application</span>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -174,155 +183,13 @@
 				</section>
 
 				<!--////////////////////////////////////////Next Section////////////////////////////////////////-->
-				<!-- Thought would be nice to use as individual cards for the posts other have posted for others to see-->
-				<section class="colorlib-education" data-section="history">
+
+				<section class="colorlib-blog" data-section="incompletePosts">
 					<div class="colorlib-narrow-content">
 						<div class="row">
 							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
 								data-animate-effect="fadeInLeft">
-								<h2 class="colorlib-heading animate-box">Post History</h2>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-								<div class="fancy-collapse-panel">
-									<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingOne">
-												<h4 class="panel-title">
-													<a data-toggle="collapse" data-parent="#accordion"
-														href="#collapseOne" aria-expanded="true"
-														aria-controls="collapseOne">Master Degree Graphic Design
-													</a>
-												</h4>
-											</div>
-											<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
-												aria-labelledby="headingOne">
-												<div class="panel-body">
-													<p>Far far away, behind the word <strong>mountains</strong>, far
-														from the countries Vokalia and Consonantia, there live the blind
-														texts. Separated they live in Bookmarksgrove right at the coast
-														of the Semantics, a large language ocean.</p>
-													<!-- 145 individual characters long    panel-body targets these in style.css-->
-
-													<!-- <div class="row">
-														<div class="col-md-6">
-															<p>Far far away, behind the word mountains, far from the
-																countries Vokalia and Consonantia, there live the blind
-																texts. </p>
-														</div>
-														<div class="col-md-6">
-															<p>Separated they live in Bookmarksgrove right at the coast
-																of the Semantics, a large language ocean.</p>
-														</div>
-													</div> -->
-
-												</div>
-											</div>
-										</div>
-
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingTwo">
-												<h4 class="panel-title">
-													<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-														href="#collapseTwo" aria-expanded="false"
-														aria-controls="collapseTwo">Bachelor Degree of Computer Science
-													</a>
-												</h4>
-											</div>
-											<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
-												aria-labelledby="headingTwo">
-												<div class="panel-body">
-													<p>Far far away, behind the word <strong>mountains</strong>, far
-														from the countries Vokalia and Consonantia, there live the blind
-														texts. Separated they live in Bookmarksgrove right at the coast
-														of the Semantics, a large language ocean.</p>
-
-													<!-- <ul>
-														<li>Separated they live in Bookmarksgrove right</li>
-														<li>Separated they live in Bookmarksgrove right</li>
-													</ul> -->
-
-												</div>
-											</div>
-										</div>
-
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingThree">
-												<h4 class="panel-title">
-													<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-														href="#collapseThree" aria-expanded="false"
-														aria-controls="collapseThree">Diploma in Information Technology
-													</a>
-												</h4>
-											</div>
-											<div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
-												aria-labelledby="headingThree">
-												<div class="panel-body">
-													<p>Far far away, behind the word <strong>mountains</strong>, far
-														from the countries Vokalia and Consonantia, there live the blind
-														texts. Separated they live in Bookmarksgrove right at the coast
-														of the Semantics, a large language ocean.</p>
-												</div>
-											</div>
-										</div>
-
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingFour">
-												<h4 class="panel-title">
-													<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-														href="#collapseFour" aria-expanded="false"
-														aria-controls="collapseFour">Diploma in Information Technology
-													</a>
-												</h4>
-											</div>
-											<div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
-												aria-labelledby="headingFour">
-												<div class="panel-body">
-													<p>Far far away, behind the word <strong>mountains</strong>, far
-														from the countries Vokalia and Consonantia, there live the blind
-														texts. Separated they live in Bookmarksgrove right at the coast
-														of the Semantics, a large language ocean.</p>
-												</div>
-											</div>
-										</div>
-
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingFive">
-												<h4 class="panel-title">
-													<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
-														href="#collapseFive" aria-expanded="false"
-														aria-controls="collapseFive">High School Secondary Education
-													</a>
-												</h4>
-											</div>
-											<div id="collapseFive" class="panel-collapse collapse" role="tabpanel"
-												aria-labelledby="headingFive">
-												<div class="panel-body">
-													<p>Far far away, behind the word <strong>mountains</strong>, far
-														from the countries Vokalia and Consonantia, there live the blind
-														texts. Separated they live in Bookmarksgrove right at the coast
-														of the Semantics, a large language ocean.</p>
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<!--////////////////////////////////////////Next Section////////////////////////////////////////-->
-				<!-- Thought would be nice to use as individual cards for the posts other have posted for others to see-->
-				<section class="colorlib-blog" data-section="completedPosts">
-					<div class="colorlib-narrow-content">
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
-								data-animate-effect="fadeInLeft">
-								<h2 class="colorlib-heading">Your Completed Posts</h2>
+								<h2 class="colorlib-heading">Posts Inprogress</h2>
 							</div>
 						</div>
 						<div class="row">
@@ -332,7 +199,7 @@
 										alt="HTML5 Bootstrap Template by colorlib.com">
 									<div class="desc">
 										<br>
-										<h3 id="subject">Renovating National Gallery</h3>
+										<h3>Renovating National Gallery</h3>
 										<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a
 											large language ocean.</p>
 									</div>
@@ -363,109 +230,112 @@
 								</div>
 							</div>
 						</div>
+					</div>
+				</section>
+
+				<!--////////////////////////////////////////Next Section////////////////////////////////////////-->
+
+				<section class="colorlib-blog" data-section="completedPosts">
+					<div class="colorlib-narrow-content">
 						<div class="row">
-							<div class="col-md-12 animate-box">
-								<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i
-											class="icon-reload"></i></a></p>
+							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+								data-animate-effect="fadeInLeft">
+								<h2 class="colorlib-heading">Post History</h2>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="blog-entry">
+									<img src="../html/template/images/blog-1.jpg" class="img-responsive"
+										alt="HTML5 Bootstrap Template by colorlib.com">
+									<div class="desc">
+										<br>
+										<h3>Renovating National Gallery</h3>
+										<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a
+											large language ocean.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="blog-entry">
+									<img src="../html/template/images/blog-2.jpg" class="img-responsive"
+										alt="HTML5 Bootstrap Template by colorlib.com">
+									<div class="desc">
+										<br>
+										<h3>Wordpress for a Beginner</h3>
+										<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a
+											large language ocean.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="blog-entry">
+									<img src="../html/template/images/blog-3.jpg" class="img-responsive"
+										alt="HTML5 Bootstrap Template by colorlib.com">
+									<div class="desc">
+										<br>
+										<h3>Make website from scratch</h3>
+										<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a
+											large language ocean.</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</section>
 
 				<!--////////////////////////////////////////Next Section////////////////////////////////////////-->
-				<!-- Thought would be nice to use as individual cards for the posts other have posted for others to see-->
-				<section class="colorlib-work" data-section="recentPosts">
+
+				<section class="colorlib-blog" data-section="createPost">
 					<div class="colorlib-narrow-content">
 						<div class="row">
-							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
-								data-animate-effect="fadeInLeft">
-								<h2 class="colorlib-heading animate-box">Most Recent Posts</h2>
-							</div>
-						</div>
+							<div class="container-wrap">
+								<div id="postcontainer"></div>
 
-						<div class="row">
-							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="project" style="background-image: url(../html/template/images/1.jpeg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Timothy Cutlip</a></h3>
-											<span>Hey there I am looking for a Physics tutor.
-												I need help in thermodymanics for an upcoming test I have.
-												I have homeworks that I could use assistance on.
-											</span>
-											<h1> </h1>
-											<h1> </h1>
-											<h1> </h1>
-											<h3><a href="work.html">Message</a> <a href="work.html">More Info</a></h3>
-										</div>
+								<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+									data-animate-effect="fadeInLeft">
+									<h2 class="colorlib-heading">Create Post</h2>
 
-									</div>
 								</div>
 							</div>
-							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="project" style="background-image: url(../html/template/images/2.jpeg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Jesse McKinney</a></h3>
-											<span>Hello! I am calulus student and I could use some help with
-												Derivatives. I have a couple of quizes that I would like to
-												go over.
-											</span>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="row">
+										<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
+											data-animate-effect="fadeInRight">
+											<div class="dropdown">
+												<select id="dropdown" class="subject">
+													<option value="NA">Subject</option>
+													<option value="science">Science</option>
+													<option value="history">History</option>
+													<option value="math">Math</option>
+													<option value="english">English</option>
+												</select>
+											</div>
+											<form>
+												<div class="form-group">
+													<textarea id="message" cols="30" rows="7" class="form-control"
+														placeholder="Add some information about the help you need"></textarea>
+												</div>
+												<div class="form-group">
+													<input type="submit" class="btn btn-primary btn-send-message"
+														id="createPost" value="Create Post">
+												</div>
+											</form>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInTop">
-								<div class="project" style="background-image: url(../html/template/images/3.jpeg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Saeed Altaf</a></h3>
-											<span>Hi, I am taking World History! I have a paper that is due soon and
-												I would like some help with editting my paper.
-											</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInBottom">
-								<div class="project" style="background-image: url(../html/template/images/4.jpeg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Post 04</a></h3>
-											<span>Application</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="project" style="background-image: url(../html/template/images/1.jpeg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Post 05</a></h3>
-											<span>Graphic, Logo</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="project" style="background-image: url(../html/template/images/4.jpeg);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Post 06</a></h3>
-											<span>Web Design</span>
-										</div>
-									</div>
+
+							<div class="row">
+								<div class="container-wrap">
+									<div id="postcontainer"></div>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-md-12 animate-box">
-								<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i
-											class="icon-reload"></i></a></p>
-							</div>
-						</div>
-					</div>
 				</section>
+
+				<!--////////////////////////////////////////Next Section////////////////////////////////////////-->
 
 			</div><!-- end:colorlib-main -->
 		</div><!-- end:container-wrap -->
@@ -476,14 +346,10 @@
 
 	<!-- jQuery -->
 	<script src="../html/template/js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<!-- <script src="js/jquery.easing.1.3.js"></script> -->
 	<!-- Bootstrap -->
 	<script src="../html/template/js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
 	<script src="../html/template/js/jquery.waypoints.min.js"></script>
-	<!-- Owl carousel -->
-	<!-- <script src="../html/template/js/owl.carousel.min.js"></script> -->
 	<!-- Counters -->
 	<script src="../html/template/js/jquery.countTo.js"></script>
 

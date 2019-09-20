@@ -6,8 +6,8 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <link rel='stylesheet' href='../styles/signUp.css'>
-    <!-- BootStrap jQuery -->
+  <link rel='stylesheet' href='../styles/signUp.css'>
+  <!-- BootStrap jQuery -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -42,76 +42,32 @@
               </div>
           </div>
       </form>
+<body>
+
+  <body style="margin-top: 4em">
+
+    <form style="border:1px solid #ccc" id="Forum">
+      <div class="container" id="SignInBox">
+
+        <h1>Sign In</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+
+        <label for="email"><b>Email</b><span id="error"></span></label>
+        <input type="text" placeholder="Enter Email" id="email" name="email" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" id="passWord" name="password" required>
+
+        <div class="clearfix">
+          <!-- <button type="button" class="cancel">Cancel</button> -->
+          <button type="submit" class="signIn">Sign In</button>
+        </div>
+      </div>
+    </form>
   </body>
   <script type='text/javascript'>
-  
-      const config = {
-          apiKey: "AIzaSyB_m_T5HTRv8nJag2AiCxVKk-9ft_k0BzY",
-          authDomain: "project-2-a5345.firebaseapp.com",
-          databaseURL: "https://project-2-a5345.firebaseio.com",
-          projectId: "project-2-a5345",
-          storageBucket: "project-2-a5345.appspot.com",
-          messagingSenderId: "649772621947",
-          appId: "1:649772621947:web:36fce6153aa474885ec2de"
-      };
-  
-      firebase.initializeApp(config);
-  
-      var database = firebase.database();
-  
-      $(".submit").on("click", function (event) {
-          var newUser = {};
-          event.preventDefault();
-          if ($("#password").val().trim() === $("#confirm").val().trim()) {
-              newUser = {
-                  email: $("#email")
-                      .val()
-                      .trim(),
-                  name: $("#name")
-                      .val()
-                      .trim(),
-                  password: $("#password")
-                      .val()
-                      .trim()
-              };
-          }
-  
-          const auth = firebase.auth();
-  
-          const promise = auth.createUserWithEmailAndPassword(email, password);
-          $("#displayError").text("");
-  
-          promise.catch(e => {
-              console.log(e.message);
-              $("#displayError").text(e.message);
-          });
-  
-          $.ajax({
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              type: "POST",
-              url: "/signUp/new",
-              data: JSON.stringify(newUser)
-          });
-      });
-  
-      firebase.auth().onAuthStateChanged(user => {
-          if (user) {
-              window.location.href = "/home";
-              console.log("Signed in as: " + user.email);
-          } else {
-  
-          }
-      });
-  
-      $(".cancel").on("click", function () {
-          window.location.href = "/";
-      });
-  </script>
-  
 
-  <script>
     const config = {
       apiKey: "AIzaSyB_m_T5HTRv8nJag2AiCxVKk-9ft_k0BzY",
       authDomain: "project-2-a5345.firebaseapp.com",
@@ -125,10 +81,12 @@
     firebase.initializeApp(config);
 
     var database = firebase.database();
+
     var user;
 
-    $("#signInBtn").on("click", function () {
+    $(".signIn").on("click", function () {
       event.preventDefault();
+      $("#error").text("");
 
       const email = $("#email")
         .val()
@@ -136,57 +94,25 @@
       const password = $("#passWord")
         .val()
         .trim();
+
       const auth = firebase.auth();
 
       const promise = auth.signInWithEmailAndPassword(email, password);
-      $("#displayError").text("");
+
       promise.then((result) => {
         // result.user
         // window.location.href = "/home";
       }).catch(e => {
         console.log(e.message);
-        $("#displayError").text(e.message);
+        $("#error").html("&emsp;&emsp;&emsp;Invalid Username or Password");
       });
 
-
-      $("#userName").val("");
-      $("#passWord").val("");
-
-      console.log("sign in");
+      $("#password").val("");
     });
 
-    $("#signUpBtn").on("click", function () {
-      event.preventDefault();
-
-      const email = $("#email")
-        .val()
-        .trim();
-      const password = $("#passWord")
-        .val()
-        .trim();
-      const auth = firebase.auth();
-
-      const Login = async () => {
-        console.log('workin');
-        $("#displayError").text("");
-        const promise = await auth.createUserWithEmailAndPassword(email, password)
-        // promise.then(() => {
-        // console.log('herro')
-        // }
-        // ).catch(e => {
-        //   console.log(e.message);
-        //   $("#displayError").text(e.message);
-        // });
-
-        // console.log("sign up");;
-        console.log(promise);
-      }
-      Login();
-
-
+    $(".cancel").on("click", function () {
+      window.location.href = "/";
     });
-
-    // var currentURL = window.location.origin;
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -194,10 +120,6 @@
       } else {
 
       }
-    });
-
-    $("#signOut").on("click", function () {
-      firebase.auth().signOut();
     });
 
     function openNav() {
