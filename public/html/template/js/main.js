@@ -51,6 +51,17 @@ function filterBy(sub) {
   });
 }
 
+$(".accept").on("click", function() {
+  var userId = $(this).attr("data-userId");
+  var postId = $(this).attr("data-postId");
+  $.ajax({
+    url: currentURL + "/api/accept/" + postId + "/" + userId,
+    method: "PUT"
+  }).then(function(res) {
+    console.log(res);
+  });
+});
+
 $("#signOut").on("click", function() {
   firebase.auth().signOut();
 });
