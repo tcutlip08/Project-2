@@ -14,6 +14,11 @@ module.exports = function(app) {
       res.json(dbUser);
     });
   });
+  app.get("/api/allPosts/notAcc", function(req, res) {
+    db.Post.findAll({ where: { Accepted: false } }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
 
   app.get("/api/allPosts", function(req, res) {
     db.Post.findAll({}).then(function(dbPost) {
@@ -80,9 +85,9 @@ module.exports = function(app) {
 
   app.post("/post/new", function(req, res) {
     console.log("new post");
+    console.log(req.body.subject);
     db.Post.create({
-      // PosterID: req.body.id,
-      PosterID: 3,
+      PosterID: req.body.id,
       Subject: req.body.subject,
       Task: req.body.task
     }).then(function(data) {

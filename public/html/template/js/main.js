@@ -23,10 +23,12 @@ firebase.auth().onAuthStateChanged(function(fbUser) {
         email: fbUser.email
       }
     }).then(function(res) {
-      console.log(res.name);
+      console.log("User Logged In");
+      console.log(res);
       user = res;
       $("#username").text(res.name);
     });
+    getAllNotAccPosts();
   } else {
     window.location.href = "/";
   }
@@ -36,26 +38,40 @@ $("#signOut").on("click", function() {
   firebase.auth().signOut();
 });
 
-$("#createpost").on("click", function() {
+$("#createPost").on("click", function() {
   event.preventDefault();
-  // var newPost = {
-  //   task: $("#taskInput").val().trim(),
-  //   id: user.id
-  // }
+  console.log($(".subject").val());
   var newPost = {
-    task: "try me",
-    subject: "math",
-    id: 1
+    subject: $(".subject").val(),
+    task: $("#message")
+      .val()
+      .trim(),
+    id: user.id
   };
+  // var newPost = {
+  //   subject: "math",
+  //   task: "try me",
+  //   id: 1
+  // };
   $.ajax({
     headers: {
       "Content-Type": "application/json"
     },
     type: "POST",
     url: "/post/new",
-    data: newPost
+    data: JSON.stringify(newPost)
   });
 });
+
+function getAllNotAccPosts() {
+  $.ajax({
+    url: currentURL + "/api/allPosts/notAcc",
+    method: "GET"
+  }).then(function(res) {
+    console.log("Posts not accepted");
+    console.log(res);
+  });
+}
 
 // Template Code Below
 
@@ -123,7 +139,6 @@ $("#createpost").on("click", function() {
   // Animations
   var contentWayPoint = function() {
     var i = 0;
-    console.log(i);
     $(".animate-box").waypoint(
       function(direction) {
         if (direction === "down" && !$(this.element).hasClass("animated")) {
