@@ -36,8 +36,7 @@
       </p>
       <hr class="my-4">
       <p>Get started by creating an account or logging in</p>
-      <a class="btn btn-light btn-lg" href="/signIn" role="button" onclick="document.getElementById('id01')"
-        style="width:auto;">Sign In </a>
+      <a class="btn btn-light btn-lg" href="/signIn" role="button">Sign In </a>
       <a class="btn btn-light btn-lg" href="/signUp" role="button">Sign up </a>
     </div>
   </div>
@@ -58,15 +57,6 @@
     var database = firebase.database();
 
     var currentURL = window.location.origin;
-
-    $("#accept").on("click", function () {
-      $.ajax({
-        url: currentURL + "/api/accept/3/1",
-        method: 'PUT'
-      }).then(function (response) {
-        var results = response.data;
-      });
-    });
 
     firebase.auth().onAuthStateChanged(fbUser => {
       if (fbUser) {
