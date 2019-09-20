@@ -91,13 +91,13 @@ module.exports = function(app) {
       Subject: req.body.subject,
       Task: req.body.task
     }).then(function(data) {
-      res.json(data);
+      res.json({ id: data.id });
     });
   });
 
   app.get("/api/accept/:postID/:userID", function(req, res) {
     console.log("accept api");
-    // console.log(res);
+    console.log(req.params);
     db.Post.update(
       {
         AccepterID: req.params.userID,
@@ -109,6 +109,7 @@ module.exports = function(app) {
         }
       }
     ).then(function(data) {
+      console.log(data);
       res.json(data);
     });
   });
