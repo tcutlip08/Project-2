@@ -8,6 +8,8 @@ var config = {
   appId: "1:649772621947:web:36fce6153aa474885ec2de"
 };
 
+var user;
+
 firebase.initializeApp(config);
 
 var currentURL = window.location.origin;
@@ -21,6 +23,8 @@ firebase.auth().onAuthStateChanged(function(fbUser) {
         email: fbUser.email
       }
     }).then(function(res) {
+      console.log(res.name);
+      user = res;
       $("#username").text(res.name);
     });
   } else {
@@ -33,9 +37,10 @@ $("#signOut").on("click", function() {
 });
 
 $("#createpost").on("click", function() {
+  event.preventDefault();
   // var newPost = {
   //   task: $("#taskInput").val().trim(),
-  //   id: $("data-id").val()
+  //   id: user.id
   // }
   var newPost = {
     task: "try me",
@@ -48,7 +53,7 @@ $("#createpost").on("click", function() {
     },
     type: "POST",
     url: "/post/new",
-    data: JSON.stringify(newPost)
+    data: newPost
   });
 });
 

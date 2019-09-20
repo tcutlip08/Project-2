@@ -81,7 +81,9 @@ module.exports = function(app) {
   app.post("/post/new", function(req, res) {
     console.log("new post");
     db.Post.create({
-      PosterID: req.body.id,
+      // PosterID: req.body.id,
+      PosterID: 3,
+      Subject: req.body.subject,
       Task: req.body.task
     }).then(function(data) {
       res.json(data);
