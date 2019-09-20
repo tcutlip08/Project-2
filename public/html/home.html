@@ -66,14 +66,6 @@
 			</aside>
 			<br>
 
-			<!-- <div class="colorlib-footer">
-				<p><small>&copy;  -->
-			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-			<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
-			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-			<!-- </span> <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash.com</a></span></small></p>-->
-
-
 			<!-- Body wrapper for everything except the navbar-->
 			<div id="colorlib-main">
 				<!-- Body wrapper for everything except the navbar-->
@@ -93,7 +85,7 @@
 										alt="HTML5 Bootstrap Template by colorlib.com">
 									<div class="desc">
 										<br>
-										<h3 id="subject">General Chemistry and Organic Chemisty</h3>
+										<h3>General Chemistry and Organic Chemisty</h3>
 										<p>I have recieved all A+ in these classes. I also have Teaching Assistant
 											experience for Organic Chemistry.
 										</p>
@@ -149,31 +141,18 @@
 								<div class="row">
 									<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
 										data-animate-effect="fadeInRight">
-										<form action="" id="createForm">
-											<!-- <div class="form-group">
-												<textarea name="" id="subject" cols="30" rows="1" class="form-control"
-													placeholder="input subject: 'math', 'history', 'english', 'science'"></textarea>
-											</div> -->
-											<div class="btn-group">
-												<button type="button" class="btn btn-secondary dropdown-toggle"
-													data-toggle="dropdown" data-display="static" aria-haspopup="true"
-													aria-expanded="false">
-													Please Pick One Of The Following Subjects:
-												</button>
-												<div class="dropdown-menu dropdown-menu-lg-right">
-													<button class="dropdown-item" value="science"
-														type="button">Science</button>
-													<button class="dropdown-item" value="history"
-														type="button">History</button>
-													<button class="dropdown-item" value="english"
-														type="button">English</button>
-													<button class="dropdown-item" value="math"
-														type="button">Math</button>
-												</div>
-											</div>
-											<br>
+										<div class="dropdown">
+											<select id="dropdown" class="subject">
+												<option value="NA">Subject</option>
+												<option value="science">Science</option>
+												<option value="history">History</option>
+												<option value="math">Math</option>
+												<option value="english">English</option>
+											</select>
+										</div>
+										<form>
 											<div class="form-group">
-												<textarea name="" id="message" cols="30" rows="7" class="form-control"
+												<textarea id="message" cols="30" rows="7" class="form-control"
 													placeholder="Add some information about the help you need"></textarea>
 											</div>
 											<div class="form-group">
@@ -219,11 +198,9 @@
 														from the countries Vokalia and Consonantia, there live the blind
 														texts. Separated they live in Bookmarksgrove right at the coast
 														of the Semantics, a large language ocean.</p>
-													<!-- 145 individual characters long    panel-body targets these in style.css-->
 												</div>
 											</div>
 										</div>
-
 										<div class="panel panel-default">
 											<div class="panel-heading" role="tab" id="headingTwo">
 												<h4 class="panel-title">
@@ -328,7 +305,7 @@
 										alt="HTML5 Bootstrap Template by colorlib.com">
 									<div class="desc">
 										<br>
-										<h3 id="subject">Renovating National Gallery</h3>
+										<h3>Renovating National Gallery</h3>
 										<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a
 											large language ocean.</p>
 									</div>
