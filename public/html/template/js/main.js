@@ -70,6 +70,8 @@ function getAllNotAccPosts() {
   }).then(function(res) {
     console.log("Posts not accepted");
     console.log(res);
+
+    // appendPostCards(res);
   });
 }
 

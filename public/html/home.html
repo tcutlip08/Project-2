@@ -443,6 +443,21 @@
 							</div>
 						</div>
 
+						<!-- <div class="card text-center">
+							<div class="card-header">
+								Featured
+							</div>
+							<div class="card-body">
+								<h5 class="card-title">Special title treatment</h5>
+								<p class="card-text">With supporting text below as a natural lead-in to additional
+									content.</p>
+								<a href="#" class="btn btn-primary">Go somewhere</a>
+							</div>
+							<div class="card-footer text-muted">
+								2 days ago
+							</div>
+						</div> -->
+
 					</div>
 				</section>
 
@@ -469,15 +484,30 @@
 	<script type='text/javascript'>
 
 		// var createForm = $("#createPost");
-		$("#createPost").on("submit", handleFormSubmit);
-		var subject = $(".subject");
-		var message = $("#message");
-		function createNewPost(newPost) {
-			var newPostCard = $("<div>");
-			newPostCard.addClass("card");
-			var newPostCardHeading = $("<div>");
-			newPostCardHeading.addClass("card-header");
-		};
+		$("#createPost").on("click", function () {
+			var subject = $(".subject");
+			var message = $("#message");
+			var newPost;
+			function createNewPost(newPost) {
+				var newPostCard = $("<div>");
+				newPostCard.addClass("card text-center");
+				var newPostCardHeader = $("<div>");
+				newPostCardHeader.addClass("card-header");
+				var newPostCardBody = $("<div>");
+				newPostCardBody.addClass("card-body");
+				var newPostCardTitle = $("<h3>");
+				newPostCardTitle.addClass("card-title");
+				newPostCardTitle.text("Subject: " + newPost.subject);
+				var newPostCardText = $("<p>");
+				newPostCardText.addClass("card-text");
+				newPostCardText.text(newPost.task);
+				var acceptButton = $("<button>");
+				acceptButton.text("ACCEPT");
+				acceptButton.addClass("btn btn-primary");
+				var newPostCardFooter = $("<div>");
+				newPostCardFooter.addClass("card-footer text-muted");
+			};
+		});
 		// var updating = false;
 		// var postContainer = $(".post-container");
 		// function handleFormSubmit(event) {
@@ -548,7 +578,7 @@
 		$("#createPost").on("click", function () {
 			console.log("click")
 			var newPost = {
-				subject: $("#subject").val().trim(),
+				subject: $("#subject").val(),
 				task: $("#message").val().trim(),
 				id: $("data-id").val()
 			}
