@@ -26,6 +26,7 @@ firebase.auth().onAuthStateChanged(function(fbUser) {
       console.log("User Logged In");
       console.log(res);
       user = res;
+      getUserHistoryOfPosts(res);
       $("#username").text(res.name);
     });
     getAllNotAccPosts();
@@ -69,6 +70,16 @@ function getAllNotAccPosts() {
     method: "GET"
   }).then(function(res) {
     console.log("Posts not accepted");
+    console.log(res);
+  });
+}
+
+function getUserHistoryOfPosts(data) {
+  $.ajax({
+    url: currentURL + "/api/history/" + data.id,
+    method: "GET"
+  }).then(function(res) {
+    console.log("Users History of Posts");
     console.log(res);
   });
 }
@@ -139,6 +150,7 @@ function getAllNotAccPosts() {
   // Animations
   var contentWayPoint = function() {
     var i = 0;
+    console.log(i);
     $(".animate-box").waypoint(
       function(direction) {
         if (direction === "down" && !$(this.element).hasClass("animated")) {
