@@ -3,6 +3,18 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
   // GET route for getting all of the posts
+  app.get("/api/homeUser", function(req, res) {
+    // console.log("One User");
+
+    db.User.findOne({
+      where: {
+        email: req.query.email
+      }
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
   app.get("/api/allPosts", function(req, res) {
     db.Post.findAll({}).then(function(dbPost) {
       res.json(dbPost);
@@ -17,7 +29,7 @@ module.exports = function(app) {
 
   app.get("/api/history", function(req, res) {
     console.log("default");
-    // db.User.findOne({ where: { email: req.params.email } }).then(function(
+    // db.User.findOne({ where: { email: req.body.email } }).then(function(
     db.User.findOne({ where: { email: "tcutlip08@gmail.com" } }).then(function(
       dbUser
     ) {

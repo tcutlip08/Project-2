@@ -39,10 +39,10 @@
       <a class="btn btn-light btn-lg" href="/signIn" role="button" onclick="document.getElementById('id01')"
         style="width:auto;">Sign In </a>
       <a class="btn btn-light btn-lg" href="/signUp" role="button">Sign up </a>
-      <a class="btn btn-light btn-lg" id="signOut" role="button">Sign Out </a>
     </div>
   </div>
   </div>
+
   <script>
     const config = {
       apiKey: "AIzaSyB_m_T5HTRv8nJag2AiCxVKk-9ft_k0BzY",
@@ -54,8 +54,6 @@
       appId: "1:649772621947:web:36fce6153aa474885ec2de"
     };
 
-
-
     firebase.initializeApp(config);
 
     var database = firebase.database();
@@ -63,31 +61,11 @@
     var currentURL = window.location.origin;
 
     $("#accept").on("click", function () {
-      console.log("accept");
       $.ajax({
         url: currentURL + "/api/accept/3/1",
         method: 'PUT'
       }).then(function (response) {
         var results = response.data;
-      });
-    });
-
-    $("#post").on("click", function () {
-      // var newPost = {
-      //   task: $("#taskInput").val().trim(),
-      //   id: $("data-id").val()
-      // }
-      var newPost = {
-        task: "try me",
-        id: 1
-      }
-      $.ajax({
-        headers: {
-          "Content-Type": "application/json"
-        },
-        type: "POST",
-        url: "/post/new",
-        data: JSON.stringify(newPost)
       });
     });
 

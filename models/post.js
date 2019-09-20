@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
 
   var Post = sequelize.define("Post", {
     PosterID: DataTypes.INTEGER,
+    Subject: DataTypes.TEXT,
     Task: DataTypes.TEXT,
     Accepted: {
       type: DataTypes.BOOLEAN,

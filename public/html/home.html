@@ -4,7 +4,7 @@
 	<title>SLR Dashboard</title>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
-
+	<link rel="stylesheet" href="../styles/home.css">
 	<!-- Animate.css   taking this out breaks everything-->
 	<link rel="stylesheet" href="../html/template/css/animate.css">
 	<!-- Bootstrap   taking this out breaks everything-->
@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="../html/template/css/style.css">
 	<!-- Modernizr JS -->
 	<script src="../html/template/js/modernizr-2.6.2.min.js"></script>
+	<!-- Ajax -->
+	<script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js'></script>
 
 </head>
 
@@ -27,14 +29,18 @@
 			<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
 
 				<div class="text-center">
+					<h1 id="colorlib-logo"><a href="index.html">
+							Student Life Raft
+							<!-- (Display User Name Here in side bar) -->
+						</a></h1>
 					<!--Below is the user image for the side nav bar  class=author-img shows up here and style.css-->
-					<div class="author-img" style="background-image: url(../html/template/images/about.jpg);"></div>
+					<div class="author-img" style="background-image: IMG_2382JPG"></div>
 					<!--Below is the link to the section, in this case the top of the page
                     colorlib-logo shows up here and style.css-->
-					<h1 id="colorlib-logo">
-						Jackson Ford</h1>
-					<!-- (Display User Name Here in side bar) -->
-					<!-- overflow-y: scroll    will get rid of the scroll bar on the side of the user pic -->
+					<h1 id="colorlib-logo"><a href="#">
+							<span id="username"></span>
+							<!-- (Display User Name Here in side bar) -->
+						</a></h1>
 				</div>
 
 				<!-- This section takes you to sections of the portfolio page, dont really need this just need the <li>----------->
@@ -44,6 +50,7 @@
 							<!-- <li class="active"><a href="#" data-nav-section="home">Home</a></li> -->
 							<!-- <li><a href="#" data-nav-section="about">About</a></li> -->
 							<!-- <li><a href="#" data-nav-section="experience">Experience</a></li> -->
+							<li><a href="#" data-nav-section="aboutMe">About Me</a></li>
 							<li><a href="#" data-nav-section="createPost">Create A Post</a></li>
 							<li><a href="#" data-nav-section="history">Post History</a></li>
 							<li><a href="#" data-nav-section="completedPosts">Your Completed Posts</a></li>
@@ -71,6 +78,64 @@
 			<div id="colorlib-main">
 				<!-- Body wrapper for everything except the navbar-->
 
+				<section class="colorlib-blog" data-section="aboutMe">
+					<div class="colorlib-narrow-content">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+								data-animate-effect="fadeInLeft">
+								<h2 class="colorlib-heading">Areas of Expertise</h2>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="blog-entry">
+									<img src="../html/template/images/blog-1.jpg" class="img-responsive"
+										alt="HTML5 Bootstrap Template by colorlib.com">
+									<div class="desc">
+										<br>
+										<h3 id="subject">General Chemistry and Organic Chemisty</h3>
+										<p>I have recieved all A+ in these classes. I also have Teaching Assistant
+											experience for Organic Chemistry.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
+								<div class="blog-entry">
+									<img src="../html/template/images/blog-2.jpg" class="img-responsive"
+										alt="HTML5 Bootstrap Template by colorlib.com">
+									<div class="desc">
+										<br>
+										<h3>Algebra, Calculus, and Linear Alebra</h3>
+										<p>I made solid A's in the class. I have also led study groups
+											for my class.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+								<div class="blog-entry">
+									<img src="../html/template/images/blog-3.jpg" class="img-responsive"
+										alt="HTML5 Bootstrap Template by colorlib.com">
+									<div class="desc">
+										<br>
+										<h3>Physics</h3>
+										<p>Overall I have made B+ in both of the introductory physics. On tests I have
+											always made over 90's.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 animate-box">
+								<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i
+											class="icon-reload"></i></a></p>
+							</div>
+						</div>
+					</div>
+				</section>
+
 				<section class="colorlib-contact" data-section="createPost">
 					<div class="colorlib-narrow-content">
 						<div class="row">
@@ -84,7 +149,7 @@
 								<div class="row">
 									<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
 										data-animate-effect="fadeInRight">
-										<form action="" id="postIt">
+										<form action="" id="createForm">
 											<div class="form-group">
 												<input type="text" class="form-control" id="subject"
 													placeholder="Subject">
@@ -95,7 +160,7 @@
 											</div>
 											<div class="form-group">
 												<input type="submit" class="btn btn-primary btn-send-message"
-													value="Create Post">
+													id="createPost" value="Create Post">
 											</div>
 										</form>
 									</div>
@@ -296,39 +361,52 @@
 							</div>
 						</div>
 
-						<!-- <div class="row">
+						<div class="row">
 							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="project" style="background-image: url(../html/template/images/1.JPG);">
+								<div class="project" style="background-image: url(../html/template/images/1.jpeg);">
 									<div class="desc">
 										<div class="con">
-											<h3><a href="work.html">Miscellaneous</a></h3>
-											<span>Miscellaneous</span>
+											<h3><a href="work.html">Timothy Cutlip</a></h3>
+											<span>Hey there I am looking for a Physics tutor.
+												I need help in thermodymanics for an upcoming test I have.
+												I have homeworks that I could use assistance on.
+											</span>
+											<h1> </h1>
+											<h1> </h1>
+											<h1> </h1>
+											<h3><a href="work.html">Message</a> <a href="work.html">More Info</a></h3>
 										</div>
+
 									</div>
 								</div>
 							</div>
 							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="project" style="background-image: url(../html/template/images/img-2.webp);">
+								<div class="project" style="background-image: url(../html/template/images/2.jpeg);">
 									<div class="desc">
 										<div class="con">
-											<h3><a href="work.html">English</a></h3>
-											<span>English</span>
+											<h3><a href="work.html">Jesse McKinney</a></h3>
+											<span>Hello! I am calulus student and I could use some help with
+												Derivatives. I have a couple of quizes that I would like to
+												go over.
+											</span>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInTop">
-								<div class="project" style="background-image: url(../html/template/images/img-3.jpg);">
+								<div class="project" style="background-image: url(../html/template/images/3.jpeg);">
 									<div class="desc">
 										<div class="con">
-											<h3><a href="work.html">History</a></h3>
-											<span>History</span>
+											<h3><a href="work.html">Saeed Altaf</a></h3>
+											<span>Hi, I am taking World History! I have a paper that is due soon and
+												I would like some help with editting my paper.
+											</span>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInBottom">
-								<div class="project" style="background-image: url(../html/template/images/img-4.jpg);">
+								<div class="project" style="background-image: url(../html/template/images/4.jpeg);">
 									<div class="desc">
 										<div class="con">
 											<h3><a href="work.html">Math</a></h3>
@@ -338,7 +416,7 @@
 								</div>
 							</div>
 							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="project" style="background-image: url(../html/template/images/img-5.jpg);">
+								<div class="project" style="background-image: url(../html/template/images/1.jpeg);">
 									<div class="desc">
 										<div class="con">
 											<h3><a href="work.html">Science</a></h3>
@@ -348,7 +426,7 @@
 								</div>
 							</div>
 							<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="project" style="background-image: url(../html/template/images/img-6.jpg);">
+								<div class="project" style="background-image: url(../html/template/images/4.jpeg);">
 									<div class="desc">
 										<div class="con">
 											<h3><a href="work.html">Arts</a></h3>
@@ -363,27 +441,14 @@
 								<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i
 											class="icon-reload"></i></a></p>
 							</div>
-						</div> -->
+						</div>
 
 						<div class="row">
-
-							<!-- <div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="project" style="background-image: url(../html/template/images/1.JPG);">
-									<div class="desc">
-										<div class="con">
-											<h3><a href="work.html">Miscellaneous</a></h3>
-											<span>Miscellaneous</span>
-										</div>
-									</div>
-								</div>
-							</div> -->
-
-							<div class="row">
-								<div class="col-md-12 postContainer">
-								</div>
+							<div class="col-md-12 post-container">
 							</div>
-
 						</div>
+
+					</div>
 				</section>
 
 			</div><!-- end:colorlib-main -->
@@ -408,98 +473,97 @@
 	<script src="../html/template/js/main.js"></script>
 	<script type='text/javascript'>
 
-		$(document).ready(function () {
+		// var createForm = $("#postIt");
+		// $(createForm).on("submit", handleFormSubmit);
+		// var subject = $("#subject");
+		// var message = $("#message");
+		// var updating = false;
+		// var postContainer = $(".post-container");
+		// function handleFormSubmit(event) {
+		// 	event.preventDefault();
+		// 	// Wont submit the post if we are missing a body, title, or author
+		// 	if (!subject.val().trim() || !message.val().trim()) {
+		// 		return;
+		// 	}
+		// 	// Constructing a newPost object to hand to the database
+		// 	var newPost = {
+		// 		title: subject
+		// 			.val()
+		// 			.trim(),
+		// 		body: message
+		// 			.val()
+		// 			.trim()
+		// 	};
 
-			var createForm = $("#postIt");
-			$(createForm).on("submit", handleFormSubmit);
-			var subject = $("#subject");
-			var message = $("#message");
-			var updating = false;
-			function handleFormSubmit(event) {
-				event.preventDefault();
-				// Wont submit the post if we are missing a body, title, or author
-				if (!subject.val().trim() || !message.val().trim()) {
-					return;
-				}
-				// Constructing a newPost object to hand to the database
-				var newPost = {
-					title: subject
-						.val()
-						.trim(),
-					body: message
-						.val()
-						.trim()
-				};
+		// 	// If we're updating a post run updatePost to update a post
+		// 	// Otherwise run submitPost to create a whole new post
+		// 	if (updating) {
+		// 		newPost.id = postId;
+		// 		updatePost(newPost);
+		// 	}
+		// 	else {
+		// 		submitPost(newPost);
+		// 	}
+		// }
 
-				// If we're updating a post run updatePost to update a post
-				// Otherwise run submitPost to create a whole new post
-				if (updating) {
-					newPost.id = postId;
-					updatePost(newPost);
-				}
-				else {
-					submitPost(newPost);
-				}
+		// function submitPost(post) {
+		// 	$.post("/post/new", post, function () {
+		// 		// window.location.href = "/home";
+		// 	});
+		// }
+
+		// function initializeRows() {
+		// 	postContainer.empty();
+		// 	var postsToAdd = [];
+		// 	for (var i = 0; i < posts.length; i++) {
+		// 		postsToAdd.push(createNewRow(posts[i]));
+		// 	}
+		// 	postContainer.append(postsToAdd);
+		// };
+
+		// function createNewRow(post) {
+		// 	var newPostCard = $("<div>");
+		// 	newPostCard.addClass("card");
+		// 	var newPostCardHeading = $("<div>");
+		// 	newPostCardHeading.addClass("card-header");
+		// 	var newPostTitle = $("<h2>");
+		// 	var newPostAuthor = $("<h5>");
+		// 	newPostAuthor.text("Written by: " + post.Author.name);
+		// 	var newPostCardBody = $("<div>");
+		// 	newPostCardBody.addClass("card-body");
+		// 	var newPostBody = $("<p>");
+		// 	newPostTitle.text(post.title + " ");
+		// 	newPostBody.text(post.body);
+		// 	newPostCardHeading.append(newPostTitle);
+		// 	newPostCardHeading.append(newPostAuthor);
+		// 	newPostCardBody.append(newPostBody);
+		// 	newPostCard.append(newPostCardHeading);
+		// 	newPostCard.append(newPostCardBody);
+		// 	newPostCard.data("post", post);
+		// 	return newPostCard;
+		// };
+
+
+		$("#submit").on("click", function () {
+			var newPost = {
+				subject: $("#subject").val().trim(),
+				task: $("#message").val().trim(),
+				id: $("data-id").val()
 			}
-
-			function submitPost(post) {
-				$.post("/post/new", post, function () {
-					window.location.href = "/home";
-				});
-			}
-
-			function initializeRows() {
-				postContainer.empty();
-				var postsToAdd = [];
-				for (var i = 0; i < posts.length; i++) {
-					postsToAdd.push(createNewRow(posts[i]));
-				}
-				postContainer.append(postsToAdd);
-			};
-
-			function createNewRow(post) {
-				var newPostCard = $("<div>");
-				newPostCard.addClass("card");
-				var newPostCardHeading = $("<div>");
-				newPostCardHeading.addClass("card-header");
-				var newPostTitle = $("<h2>");
-				var newPostAuthor = $("<h5>");
-				newPostAuthor.text("Written by: " + post.Author.name);
-				var newPostCardBody = $("<div>");
-				newPostCardBody.addClass("card-body");
-				var newPostBody = $("<p>");
-				newPostTitle.text(post.title + " ");
-				newPostBody.text(post.body);
-				newPostCardHeading.append(newPostTitle);
-				newPostCardHeading.append(newPostAuthor);
-				newPostCardBody.append(newPostBody);
-				newPostCard.append(newPostCardHeading);
-				newPostCard.append(newPostCardBody);
-				newPostCard.data("post", post);
-				return newPostCard;
-			};
-
+			console.log(newPost);
+			//   var newPost = {
+			//     task: "try me",
+			//     id: 1
+			//   }
+			$.ajax({
+				headers: {
+					"Content-Type": "application/json"
+				},
+				type: "POST",
+				url: "/post/new",
+				data: JSON.stringify(newPost)
+			});
 		});
-
-
-		// $("#post").on("click", function () {
-      // var newPost = {
-      //   task: $("#taskInput").val().trim(),
-      //   id: $("data-id").val()
-      // }
-    //   var newPost = {
-    //     task: "try me",
-    //     id: 1
-    //   }
-    //   $.ajax({
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     },
-    //     type: "POST",
-    //     url: "/post/new",
-    //     data: JSON.stringify(newPost)
-    //   });
-    // });
 
 	</script>
 
