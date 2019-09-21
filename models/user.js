@@ -23,19 +23,15 @@ module.exports = function(sequelize, DataTypes) {
     console.log("called seed user");
     User.create({
       email: "tcutlip08@gmail.com",
-      name: "Nate Cutlip"
+      name: "Timothy Cutlip"
     });
     User.create({
       email: "jessman51386@gmail.com",
       name: "Jesse McKinney"
     });
     User.create({
-      email: "saeedaltaf@gmail.com",
-      name: "Saeed Altaf"
-    });
-    User.create({
-      email: "rpatel209@student.gsu.edu",
-      name: "Roopa Patel"
+      email: "nate.cutlip@yahoo.com",
+      name: "Nate Cutlip"
     });
   };
 
