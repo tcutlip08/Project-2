@@ -46,7 +46,26 @@ module.exports = function(sequelize, DataTypes) {
       PosterID: 3,
       Subject: "science",
       Task:
-        "I have my safety glasses, so atleast I look like i know what im doing"
+        "I have my safety glasses, so atleast I look like I know what im doing"
+    });
+    Post.create({
+      PosterID: 2,
+      Subject: "math",
+      Task: "5 + 4 = 54 right?"
+    });
+    Post.create({
+      PosterID: 1,
+      Subject: "science",
+      Task: "What is scientific notation?",
+      Accepted: true,
+      AccepterID: 4
+    });
+    Post.create({
+      PosterID: 4,
+      Subject: "history",
+      Task: "Benjimen Franklin was a best president?",
+      Accepted: true,
+      AccepterID: 2
     });
   };
 
