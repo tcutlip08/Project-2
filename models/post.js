@@ -58,10 +58,10 @@ module.exports = function(sequelize, DataTypes) {
       Subject: "science",
       Task: "What is scientific notation?",
       Accepted: true,
-      AccepterID: 4
+      AccepterID: 2
     });
     Post.create({
-      PosterID: 4,
+      PosterID: 3,
       Subject: "history",
       Task: "Benjimen Franklin was a best president?",
       Accepted: true,
