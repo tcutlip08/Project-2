@@ -110,7 +110,6 @@ function createNewPost(post, postId) {
   $("#postcontainer").append("<br>");
   $("#postcontainer").append("<br>");
 }
-
 function getAllNotAccPosts() {
   $.ajax({
     url: currentURL + "/api/allPosts/notAcc",
@@ -118,8 +117,6 @@ function getAllNotAccPosts() {
   }).then(function(res) {
     console.log("Posts not accepted");
     console.log(res);
-
-    // appendPostCards(res);
   });
 }
 
