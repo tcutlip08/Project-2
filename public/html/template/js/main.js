@@ -30,10 +30,10 @@ firebase.auth().onAuthStateChanged(function(fbUser) {
       // $("#userImage").html("<img src='Logo.png' alt='User Image'/>");
       $("#username").text(res.name);
     });
-    getAllNotAccPosts();
   } else {
     window.location.href = "/";
   }
+  getAllNotAccPosts();
 });
 
 $(".filter").on("click", function() {
@@ -110,9 +110,10 @@ function createNewPost(post, postId) {
   $("#postcontainer").append("<br>");
   $("#postcontainer").append("<br>");
 }
+
 function getAllNotAccPosts() {
   $.ajax({
-    url: currentURL + "/api/allPosts/notAcc",
+    url: currentURL + "/api/notAcc",
     method: "GET"
   }).then(function(res) {
     console.log("Posts not accepted");

@@ -21,7 +21,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/allPosts/notAcc", function(req, res) {
+  app.get("/api/notAcc", function(req, res) {
     db.Post.findAll({ where: { Accepted: false } }).then(function(dbPost) {
       res.json(dbPost);
     });
