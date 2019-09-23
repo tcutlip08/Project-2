@@ -59,7 +59,7 @@
 							<br>
 							<br>
 							<br>
-							<li><button id="signOut">Sign Out</a></li>
+							<li><button id="signOut" style="border-radius:12px; color:crimson;">Sign Out</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -79,10 +79,19 @@
 								<div class="project" style="background-image: url(../html/template/images/math.jpeg);">
 									<div class="desc">
 										<div class="con filter" id="math">
-											<h3><a href="work.html">Timothy Cutlip</a></h3>
-											<span>Hey there I am looking for a Physics tutor.
-												I need help in thermodymanics for an upcoming test I have.
-												I have homeworks that I could use assistance on.
+											<h3><a href="work.html">Math Subjects:</a></h3>
+											<span>
+												<ul>
+													<li>Pre-Algebra</li>
+													<li>Algebra 1</li>
+													<li>Algebra 2</li>
+													<li>Geometry</li>
+													<li>Trigonometry</li>
+													<li>Pre-Calculus</li>
+													<li>Calculus</li>
+													<li>Stat</li>
+													<li>Integrated Math</li>
+												</ul>
 											</span>
 										</div>
 
@@ -94,10 +103,19 @@
 									style="background-image: url(../html/template/images/history.jpeg);">
 									<div class="desc">
 										<div class="con filter" id="history">
-											<h3><a href="work.html">Jesse McKinney</a></h3>
-											<span>Hello! I am calulus student and I could use some help with
-												Derivatives. I have a couple of quizes that I would like to
-												go over.
+											<h3><a href="work.html">History</a></h3>
+											<span>
+												<ul>
+													<li>American History</li>
+													<li>World History</li>
+													<li>Geography</li>
+													<li>US Government</li>
+													<li>European History</li>
+													<li>Economics</li>
+													<li>Sociology</li>
+													<li>Political science</li>
+													<li>World religions</li>
+												</ul>
 											</span>
 										</div>
 									</div>
@@ -108,9 +126,18 @@
 									style="background-image: url(../html/template/images/science.jpeg);">
 									<div class="desc">
 										<div class="con filter" id="science">
-											<h3><a href="work.html">Saeed Altaf</a></h3>
-											<span>Hi, I am taking World History! I have a paper that is due soon and
-												I would like some help with editting my paper.
+											<h3><a href="work.html">Science</a></h3>
+											<span>
+												<ul>
+													<li>Earth Science</li>
+													<li>Physical Science</li>
+													<li>Biology</li>
+													<li>Chemistry</li>
+													<li>Physics</li>
+													<li>Environmental Science</li>
+													<li>Astronomy</li>
+													<li>Forensic Science</li>
+												</ul>
 											</span>
 										</div>
 									</div>
@@ -121,8 +148,18 @@
 									style="background-image: url(../html/template/images/english.jpeg);">
 									<div class="desc">
 										<div class="con filter" id="english">
-											<h3><a href="work.html">Post 04</a></h3>
-											<span>Application</span>
+											<h3><a href="work.html">English Literature</a></h3>
+											<span>
+												<ul>
+													<li>American Literature</li>
+													<li>British Literature</li>
+													<li>World Literature</li>
+													<li>Creative Writing</li>
+													<li>Journalism</li>
+													<li>Composition</li>
+													<li>Poetry</li>
+												</ul>
+											</span>
 										</div>
 									</div>
 								</div>
@@ -251,7 +288,8 @@
 									<div class="row">
 										<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
 											data-animate-effect="fadeInRight">
-											<div class="dropdown">
+
+											<div class="dropdown" style="width:100%;">
 												<select id="dropdown" class="subject">
 													<option value="NA">Subject</option>
 													<option value="science">Science</option>
@@ -260,6 +298,7 @@
 													<option value="english">English</option>
 												</select>
 											</div>
+
 											<form>
 												<div class="form-group">
 													<textarea id="message" cols="30" rows="7" class="form-control"
@@ -267,7 +306,7 @@
 												</div>
 												<div class="form-group">
 													<input type="submit" class="btn btn-primary btn-send-message"
-														id="createPost" value="Create Post">
+														id="createPost" value="Create Post" style="border-radius:12px;">
 												</div>
 											</form>
 										</div>
@@ -275,24 +314,44 @@
 								</div>
 							</div>
 
-							<div class="row postHistory">
-								<div class="col">
-									1
-								</div>
-								<div class="col">
-									2
-								</div>
-								<div class="col">
-									3
+							<!-- all posts section -->
+
+							<div style="text-align:center; border:black 3px solid;" class="col-sm-12" value="allPosts" id="allPosts">
+								All Posts</div>
+							<div style="text-align:center;" class="col-sm=12">
+								<div class="row">
+									<div class="col-sm-12" id="postCol"></div>
 								</div>
 							</div>
 
-							<div class="row">
-								<div class="container-wrap">
-									<div id="postcontainer"></div>
+							<!-- individual posts section -->
+
+							<!-- <div style="text-align:center;" class="col-sm-3" value="mathSubject">Math
+								<div class="row">
+									<div class="col-sm-12" id="mathCol"></div>
 								</div>
 							</div>
+
+							<div style="text-align:center;" class="col-sm-3" value="historySubject">History
+								<div class="row">
+									<div class="col-sm-12" id="historyCol"></div>
+								</div>
+							</div>
+
+							<div style="text-align:center;" class="col-sm-3" value="scienceSubject">Science
+								<div class="row">
+									<div class="col-sm-12" id="scienceCol"></div>
+								</div>
+							</div>
+
+							<div style="text-align:center;" class="col-sm-3" value="englishSubject">English
+								<div class="row">
+									<div class="col-sm-12" id="englishCol"></div>
+								</div>
+							</div> -->
+
 						</div>
+					</div>
 				</section>
 
 				<!--////////////////////////////////////////Next Section////////////////////////////////////////-->
