@@ -104,20 +104,6 @@ function createNewPost(post) {
   postSubjects.insertBefore(newPostSubject, postSubjects.childNodes[0]);
 }
 
-//Math  all of the others will be the same as this but instead of math it will be subbed out for history, english and science
-function createNewPost(post) {
-  var newMathTask = document.createElement("DIV");
-  var mathTask = document.createTextNode(post.task);
-  newMathTask.appendChild(mathTask);
-  var mathTasks = document.getElementById("mathCol");
-  mathTasks.insertBefore(newMathTask, mathTasks.childNodes[0]);
-  var newMathSubject = document.createElement("DIV");
-  var mathSubject = document.createTextNode(post.subject);
-  newMathSubject.appendChild(mathSubject);
-  var mathSubjects = document.getElementById("mathCol");
-  mathSubjects.insertBefore(newMathSubject, mathSubjects.childNodes[0]);
-}
-
 function getAllNotAccPosts() {
   $.ajax({
     url: currentURL + "/api/notAcc",
@@ -166,7 +152,6 @@ function testLooping() {
   }).then(function(res) {
     console.log("Testing");
     console.log(res);
-    var colors = ["blue", "red", "green"];
     var length = res.length;
     for (var row = 0; row <= length / 3; row++) {
       console.log(row + " - row");
@@ -182,17 +167,11 @@ function testLooping() {
         }
         res.splice(0, 3);
       }
-      console.log(colors[2]);
     }
     // var postHistory = "<div>";
     // postHistory.addClass("row");
   });
 }
-
-// function spliceArray(array) {
-//   array.splice(0, 3);
-//   return array;
-// }
 
 // Template Code Below
 
