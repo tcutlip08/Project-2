@@ -26,21 +26,20 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   Post.seed = function() {
-    console.log("called posts");
     Post.create({
       PosterID: 2,
       Subject: "english",
-      Task: "I can't spell naybohrhud",
-      Accepted: true,
-      AccepterID: 1,
-      Completed: true
+      Task: "I can't spell naybohrhud"
+      // Accepted: true,
+      // AccepterID: 1,
+      // Completed: true
     });
     Post.create({
       PosterID: 1,
       Subject: "math",
-      Task: "What is MMAAFF?!?!",
-      Accepted: true,
-      AccepterID: 3
+      Task: "What is MMAAFF?!?!"
+      // Accepted: true,
+      // AccepterID: 3
     });
     Post.create({
       PosterID: 3,
@@ -63,9 +62,9 @@ module.exports = function(sequelize, DataTypes) {
     Post.create({
       PosterID: 3,
       Subject: "history",
-      Task: "Benjimen Franklin was a best president?",
-      Accepted: true,
-      AccepterID: 2
+      Task: "Benjimen Franklin was a best president?"
+      // Accepted: true,
+      // AccepterID: 2
     });
   };
 

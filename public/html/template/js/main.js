@@ -34,6 +34,7 @@ firebase.auth().onAuthStateChanged(function(fbUser) {
     window.location.href = "/";
   }
   getAllNotAccPosts();
+  testLooping();
 });
 
 $(".filter").on("click", function() {
@@ -118,6 +119,27 @@ function getAllNotAccPosts() {
   }).then(function(res) {
     console.log("Posts not accepted");
     console.log(res);
+    // var postHistory = "<div>";
+    // postHistory.addClass("row");
+    // for (var r = 0; r < res.length; r++) {
+    //   $("#post" + r).append(
+    //     "<div style='word-wrap: break-word; border:1px solid #ccc'>" +
+    //       res[0].Subject +
+    //       "</div>"
+    //   );
+    //   $("#post" + r).append(
+    //     "<div style='word-wrap: break-word; border:3px solid #ccc'>" +
+    //       res[0].Task +
+    //       "</div>"
+    //   );
+    //   $("#post" + r).append(
+    //     "<button class='accept' data-postId=" +
+    //       res[0].id +
+    //       " data-userId=" +
+    //       user.id +
+    //       ">Accept</button>"
+    //   );
+    // }
   });
 }
 
@@ -126,10 +148,45 @@ function getUserHistoryOfPosts(data) {
     url: currentURL + "/api/history/" + data.id,
     method: "GET"
   }).then(function(res) {
-    console.log("Users History of Posts");
-    console.log(res);
+    // console.log("Users History of Posts");
+    // console.log(res);
   });
 }
+
+function testLooping() {
+  $.ajax({
+    url: currentURL + "/api/notAcc",
+    method: "GET"
+  }).then(function(res) {
+    console.log("Testing");
+    console.log(res);
+    var colors = ["blue", "red", "green"];
+    var length = res.length;
+    for (var row = 0; row <= length / 3; row++) {
+      console.log(row + " - row");
+      if (res.length > 0) {
+        console.log(res.length + " array length");
+        for (var i = 0; i < 3; i++) {
+          if (res[i]) {
+            console.log(i + " - i");
+            // console.log(JSON.stringify(res[i]));
+          } else {
+            console.log(i);
+          }
+        }
+        res.splice(0, 3);
+      }
+      console.log(colors[2]);
+    }
+    // var postHistory = "<div>";
+    // postHistory.addClass("row");
+  });
+}
+
+// function spliceArray(array) {
+//   array.splice(0, 3);
+//   return array;
+// }
 
 // Template Code Below
 

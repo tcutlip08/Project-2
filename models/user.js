@@ -20,7 +20,6 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   User.seed = function() {
-    console.log("called seed user");
     User.create({
       email: "tcutlip08@gmail.com",
       name: "Timothy Cutlip"
