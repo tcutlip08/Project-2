@@ -90,27 +90,33 @@ $(document).on("click", ".accept", function() {
   });
 });
 
-function createNewPost(post, postId) {
-  $("#postcontainer").append(
-    "<div style= 'word-wrap: break-word; border:1px solid #ccc'>" +
-      post.subject +
-      "</div>"
-  );
-  $("#postcontainer").append(
-    "<div style= 'word-wrap: break-word; border:3px solid #ccc'>" +
-      post.task +
-      "</div>"
-  );
-  $("#postcontainer").append(
-    "<button class='accept' data-postId=" +
-      postId +
-      " data-userId=" +
-      user.id +
-      ">Accept</button>"
-  );
-  $("#postcontainer").append("<br>");
-  $("#postcontainer").append("<br>");
+// All Posts on one big Column
+function createNewPost(post) {
+  var newPostTask = document.createElement("DIV");
+  var postTask = document.createTextNode(post.task);
+  newPostTask.appendChild(postTask);
+  var postTasks = document.getElementById("postCol");
+  postTasks.insertBefore(newPostTask, postTasks.childNodes[0]);
+  var newPostSubject = document.createElement("DIV");
+  var postSubject = document.createTextNode(post.subject);
+  newPostSubject.appendChild(postSubject);
+  var postSubjects = document.getElementById("postCol");
+  postSubjects.insertBefore(newPostSubject, postSubjects.childNodes[0]);
 }
+
+//Math  all of the others will be the same as this but instead of math it will be subbed out for history, english and science
+// function createNewPost(post) {
+//   var newMathTask = document.createElement("DIV");
+//   var mathTask = document.createTextNode(post.task);
+//   newMathTask.appendChild(mathTask);
+//   var mathTasks = document.getElementById("mathCol");
+//   mathTasks.insertBefore(newMathTask, mathTasks.childNodes[0]);
+//   var newMathSubject = document.createElement("DIV");
+//   var mathSubject = document.createTextNode(post.subject);
+//   newMathSubject.appendChild(mathSubject);
+//   var mathSubjects = document.getElementById("mathCol");
+//   mathSubjects.insertBefore(newMathSubject, mathSubjects.childNodes[0]);
+// }
 
 function getAllNotAccPosts() {
   $.ajax({
@@ -148,8 +154,8 @@ function getUserHistoryOfPosts(data) {
     url: currentURL + "/api/history/" + data.id,
     method: "GET"
   }).then(function(res) {
-    // console.log("Users History of Posts");
-    // console.log(res);
+    console.log("Users History of Posts");
+    console.log(res);
   });
 }
 
