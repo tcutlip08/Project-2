@@ -103,20 +103,6 @@ function createNewPost(post) {
   postSubjects.insertBefore(newPostSubject, postSubjects.childNodes[0]);
 }
 
-//Math  all of the others will be the same as this but instead of math it will be subbed out for history, english and science
-// function createNewPost(post) {
-//   var newMathTask = document.createElement("DIV");
-//   var mathTask = document.createTextNode(post.task);
-//   newMathTask.appendChild(mathTask);
-//   var mathTasks = document.getElementById("mathCol");
-//   mathTasks.insertBefore(newMathTask, mathTasks.childNodes[0]);
-//   var newMathSubject = document.createElement("DIV");
-//   var mathSubject = document.createTextNode(post.subject);
-//   newMathSubject.appendChild(mathSubject);
-//   var mathSubjects = document.getElementById("mathCol");
-//   mathSubjects.insertBefore(newMathSubject, mathSubjects.childNodes[0]);
-// }
-
 function getAllNotAccPosts() {
   $.ajax({
     url: currentURL + "/api/notAcc",
