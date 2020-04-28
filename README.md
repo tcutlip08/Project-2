@@ -32,3 +32,4 @@ SLR is a Student Life Raft available for college students. This is a free applic
 - MySQL
 - Waypoint
 - Github 
+# SLR2.0
